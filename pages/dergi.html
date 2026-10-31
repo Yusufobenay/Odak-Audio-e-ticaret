@@ -1,0 +1,430 @@
+﻿<!DOCTYPE html> 
+<html lang="tr">
+  <head>
+    <meta name="author" content="Yusuf Oben Ay">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="ODAK Dijital Dergi - Teknoloji, Müzik, incelemeler ve Yaşam Tarzı" />
+    <title>Dijital Dergi | ODAK Audio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css" />
+    
+    <style>
+      * { box-sizing: border-box; }
+      body { background-color: #faf9f6; color: #1a1a1a; margin: 0; font-family: 'Roboto', sans-serif; -webkit-font-smoothing: antialiased; }
+
+      .top-green-bar { background-color: #276e33; color: #ffffff; font-size: 0.8rem; font-weight: 500; padding: 7px 0; }
+      .top-green-bar a { color: #ffffff; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+      header { background: #ffffff; border-bottom: 1px solid #e0e0e0; padding: 14px 0; position: sticky; top: 0; z-index: 100; }
+      .odak-badge-logo { background: #ff5900; color: #ffffff; font-weight: 900; letter-spacing: -0.5px; padding: 6px 14px; display: inline-flex; align-items: center; gap: 2px; text-decoration: none; font-family: Arial, sans-serif; text-transform: uppercase; border-radius: 2px; }
+      .header-actions { display: flex; align-items: center; gap: 22px; }
+      .action-icon-link { color: #111111; text-decoration: none; position: relative; display: inline-flex; align-items: center; }
+      .action-svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2; fill: none; }
+      .cart-badge { position: absolute; top: -8px; right: -10px; background-color: #ff5900; color: #ffffff; font-size: 0.7rem; font-weight: 700; width: 17px; height: 17px; display: flex; align-items: center; justify-content: center; border-radius: 2px; }
+
+      
+      .container-wide { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+      
+      
+      .mag-hero { padding: 60px 0 40px; border-bottom: 1px solid #e5e2db; margin-bottom: 50px; }
+      .mag-hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
+      .mag-hero-img { width: 100%; height: 450px; object-fit: cover; border-radius: 4px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
+      .mag-badge { background: #ff5900; color: #fff; font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 700; padding: 4px 12px; text-transform: uppercase; border-radius: 2px; display: inline-block; margin-bottom: 15px; }
+      .mag-hero-title { font-family: 'Oswald', sans-serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; line-height: 1.15; color: #111; margin: 0 0 20px; }
+      .mag-hero-desc { font-size: 1.05rem; color: #555; line-height: 1.7; margin-bottom: 25px; }
+      .mag-btn { background: #111; color: #fff; font-family: 'Oswald', sans-serif; font-size: 0.95rem; font-weight: 700; padding: 12px 28px; text-transform: uppercase; text-decoration: none; border-radius: 2px; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
+      .mag-btn:hover { background: #ff5900; }
+
+      
+      .section-header-flex { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; border-bottom: 2px solid #111; padding-bottom: 12px; }
+      .sec-title { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 800; text-transform: uppercase; margin: 0; color: #111; }
+      .sec-link { font-size: 0.9rem; font-weight: 700; color: #ff5900; text-decoration: none; text-transform: uppercase; }
+
+      
+      .editors-section { margin-bottom: 70px; }
+      .editors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+      .editor-card { background: #fff; border: 1px solid #e5e2db; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s; }
+      .editor-card:hover { transform: translateY(-4px); }
+      .editor-card img { width: 100%; height: 220px; object-fit: cover; }
+      .editor-body { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+      .editor-card h3 { font-family: 'Oswald', sans-serif; font-size: 1.3rem; margin: 0 0 12px; color: #111; line-height: 1.3; }
+      .editor-card p { font-size: 0.9rem; color: #666; line-height: 1.6; margin: 0 0 20px; flex-grow: 1; }
+
+      
+      .asym-section { margin-bottom: 70px; }
+      .asym-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+      .asym-big { background: #fff; border: 1px solid #e5e2db; border-radius: 4px; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; }
+      .asym-big img { width: 100%; height: 300px; object-fit: cover; border-radius: 2px; margin-bottom: 20px; }
+      .asym-list { display: flex; flex-direction: column; gap: 20px; }
+      .asym-item { background: #fff; border: 1px solid #e5e2db; border-radius: 4px; padding: 20px; display: flex; gap: 15px; align-items: center; }
+      .asym-item img { width: 90px; height: 90px; object-fit: cover; border-radius: 2px; flex-shrink: 0; }
+      .asym-item h4 { font-family: 'Oswald', sans-serif; font-size: 1.05rem; margin: 0 0 6px; color: #111; line-height: 1.3; }
+
+      
+      .guide-banner { background: #111; color: #fff; border-radius: 6px; padding: 60px 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 70px; }
+      .guide-banner h3 { font-family: 'Oswald', sans-serif; font-size: 2.4rem; font-weight: 800; margin: 0 0 15px; color: #ff5900; text-transform: uppercase; line-height: 1.1; }
+      .guide-banner p { color: #ccc; line-height: 1.7; margin-bottom: 25px; font-size: 1rem; }
+
+      
+      .product-promo-section { background: linear-gradient(135deg, #ff5900 0%, #e04e00 100%); color: #fff; border-radius: 6px; padding: 50px; text-align: center; margin-bottom: 70px; }
+      .product-promo-section h3 { font-family: 'Oswald', sans-serif; font-size: 2.5rem; font-weight: 800; margin: 0 0 10px; text-transform: uppercase; }
+      .product-promo-section p { font-size: 1.05rem; max-width: 600px; margin: 0 auto 30px; color: #fce8df; }
+
+      
+      .newsletter-box { background: #fff; border: 1px solid #e5e2db; padding: 50px; border-radius: 6px; text-align: center; margin-bottom: 50px; }
+      .newsletter-box h3 { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 800; margin: 0 0 10px; text-transform: uppercase; }
+      .newsletter-form { display: flex; max-width: 500px; margin: 25px auto 0; gap: 10px; }
+      .newsletter-input { flex-grow: 1; padding: 14px 16px; border: 1px solid #ccc; border-radius: 2px; font-size: 1rem; outline: none; }
+      .newsletter-btn { background: #ff5900; color: #fff; border: none; padding: 0 25px; font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; border-radius: 2px; cursor: pointer; }
+      .newsletter-btn:hover { background: #e04e00; }
+
+      
+      #articleModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 3000; justify-content: center; align-items: center; padding: 20px; }
+      .modal-box { background: #fff; width: 100%; max-width: 800px; max-height: 90vh; overflow-y: auto; padding: 40px; border-radius: 8px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+      .close-modal { position: absolute; top: 20px; right: 20px; background: #f1f1f1; border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 1.3rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+      
+      .floating-chat-bubble { position: fixed; bottom: 25px; right: 25px; background-color: #ff5900; color: #ffffff; padding: 14px 22px; border-radius: 30px; display: flex; align-items: center; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 700; cursor: pointer; box-shadow: 0 6px 20px rgba(255, 89, 0, 0.4); z-index: 1000; }
+      .floating-chat-bubble:hover { background-color: #e04e00; }
+
+      
+      .site-footer {
+        background-color: #111111;
+        color: #ffffff;
+        padding: 70px 20px 30px;
+        border-top: 4px solid #ff5900;
+      }
+      .footer-grid {
+        max-width: 1240px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        margin-bottom: 50px;
+      }
+      .footer-col h4 {
+        color: #ff5900;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.05rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin: 0 0 20px;
+        letter-spacing: 0.5px;
+      }
+      .footer-col a {
+        display: block;
+        color: #bbbbbb;
+        text-decoration: none;
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+        transition: color 0.2s;
+      }
+      .footer-col a:hover { color: #ffffff; }
+      
+      .footer-social-icons {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+      .footer-social-icons a {
+        color: #ffffff;
+        transition: color 0.2s;
+      }
+      .footer-social-icons a:hover { color: #ff5900; }
+      .footer-social-icons svg { width: 20px; height: 20px; fill: currentColor; }
+      
+      .footer-logo-big {
+        font-family: 'Oswald', sans-serif;
+        font-size: 4.5rem;
+        font-weight: 900;
+        color: #ff5900;
+        line-height: 1;
+        margin: 0;
+        letter-spacing: 1px;
+      }
+
+      .footer-bottom {
+        max-width: 1240px;
+        margin: 0 auto;
+        border-top: 1px solid #2a2a2a;
+        padding-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        color: #777;
+      }
+
+      @media (max-width: 900px) {
+        .mag-hero-grid, .asym-grid, .guide-banner { grid-template-columns: 1fr; }
+        .editors-grid { grid-template-columns: 1fr; }
+        .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 600px) { 
+        .newsletter-form { flex-direction: column; }
+        .footer-grid { grid-template-columns: 1fr; }
+        .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="top-green-bar">
+      <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px; max-width: 1240px; margin: 0 auto;">
+        <span>ODAK Müşteri Deneyimi Merkezi</span>
+        <a href="catalog.html">🛒 Alışverişe devam edin</a>
+      </div>
+    </div>
+
+    <header>
+      <div class="container" style="display: flex; align-items: center; justify-content: space-between; padding: 0 20px; max-width: 1240px; margin: 0 auto;">
+        <div style="display: flex; align-items: center; gap: 32px;">
+          <a class="odak-badge-logo" href="../index.html">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="3"/><circle cx="12" cy="12" r="3.5" fill="#ffffff"/></svg>
+            <span style="font-size: 1.45rem; font-weight: 900; font-family: 'Oswald', sans-serif;">DAK</span>
+          </a>
+        </div>
+        <div class="header-actions">
+          <a href="#" class="action-icon-link" id="searchIconBtn" title="Ara"><svg class="action-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg></a>
+          <a href="login.html" class="action-icon-link" title="Hesap"><svg class="action-svg" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/></svg></a>
+          <a href="cart.html" class="action-icon-link" title="Sepet"><svg class="action-svg" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5" fill="currentColor"/><circle cx="18" cy="20" r="1.5" fill="currentColor"/><path d="M1 1h4l2.68 12.39a2 2 0 0 0 2 1.61h8.72a2 2 0 0 0 2-1.61L22 6H6"/></svg><span class="cart-badge" id="headerCartCount">0</span></a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container-wide">
+      
+      
+      <section class="mag-hero">
+        <div class="mag-hero-grid">
+          <div>
+            <span class="mag-badge">Manşet • Teknoloji & Akustik</span>
+            <h1 class="mag-hero-title">Geleceğin Ses Teknolojileri: Yapay Zeka Destekli Aktif Gürültü Engelleme</h1>
+            <p class="mag-hero-desc">Gürültülü şehir hayatında saf sessizliği yakalamak nasıl mümkün oluyor? Gelişmiş yapay zeka algoritmalarının kulaklık akustik mimarisiyle birleştiği nokta ve ODAK AR-GE laboratuvarlarından son gelişmeler...</p>
+            <a href="#" class="mag-btn" onclick="openArticle('Geleceğin Ses Teknolojileri: Yapay Zeka Destekli Aktif Gürültü Engelleme', 'Şehir yaşamının kaçınılmaz bir parçası haline gelen trafik yoğunluğu, metro gürültüleri ve kalabalık ofis uğultuları, müzik dinleme deneyimini ve mental odaklanmayı doğrudan olumsuz etkilemektedir. ODAK AR-GE laboratuvarlarında geliştirilen yeni nesil Yapay Zeka Destekli Aktif Gürültü Engelleme (ANC) teknolojisi, çevresel sesleri milisaniyenin onda biri kadar kısa bir sürede analiz ederek faz değiştiren ters ses dalgaları üretir.\n\nBu sayede arka plandaki düşük frekanslı motor ve rüzgar sesleri tamamen sıfırlanırken, insan sesleri ve kritik uyarılar doğal tonunda filtrelenir. Akustik mühendisliğinde yapay zekanın dönemi, kullanıcıların sadece müzik dinlemesini değil, gürültü kirliliğinden tamamen arınmış kişisel bir akustik sığınak yaratmasını sağlamaktadır. Gelecekte kulaklıklar sadece ses iletmekle kalmayacak, kullanıcının ruh halini ve kalp ritmini algılayarak ANC seviyesini otomatik olarak optimize edecektir.')">Yazının Devamı →</a>
+          </div>
+          <div>
+            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=900&q=80" alt="Yapay Zeka ve Kulaklık Teknolojisi" class="mag-hero-img" />
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="editors-section">
+        <div class="section-header-flex" style="justify-content: flex-start;">
+          <h2 class="sec-title">Editörün Seçtikleri</h2>
+        </div>
+        <div class="editors-grid">
+          
+          <article class="editor-card">
+            <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80" alt="Akıllı Kulaklık incelemesi" />
+            <div class="editor-body">
+              <span class="mag-badge" style="background:#276e33;">inceleme</span>
+              <h3>ODAK Tour Pro 2 Deneyimi: Ekranlı Şarj Kutusu Gerçekten Gerekli mi?</h3>
+              <p>Akıllı dokunmatik ekranlı şarj kutusu ile telefonunuza dokunmadan tüm ses ayarlarını yönetin. Detaylı test ve incelememiz...</p>
+              <a href="#" class="sec-link" onclick="openArticle('ODAK Tour Pro 2 Deneyimi: Ekranlı Şarj Kutusu Kapsamlı incelemesi', 'Giyilebilir ses teknolojilerinde çığır açan ve endüstride büyük yankı uyandıran akıllı dokunmatik ekranlı şarj kutusu konseptini, ODAK test laboratuvarlarında haftalar süren titiz testlere tabi tuttuk. Günlük koşturmaca içinde telefonunuzu cebinizden çıkarmadan parmağınızın ucuyla ekolayzır (EQ) ayarlarını değiştirmek, ANC modları arasında geçiş yapmak, şarkı değiştirmek ve hatta sosyal medya bildirimlerini yönetmek gerçekten devrim niteliğinde bir konfor sunuyor.\n\nLaboratuvar testlerimizde pil tüketimi, ekran parlaklığı, dokunmatik tepki süresi ve bluetooth kararlılığı en ince detayına kadar incelendi. Sonuçlar gösteriyor ki bu yenilik sadece estetik veya gösterişli bir detay değil; kulaklık kullanım alışkanlıklarını kökten değiştiren son derece pratik ve akıllı bir kontrol merkezidir. Şarj kutusu artık sadece enerji depolayan bir kutu değil, doğrudan cebinizde taşıdığınız profesyonel bir ses yönetim paneli haline gelmiştir.')">incelemeyi Oku →</a>
+            </div>
+          </article>
+
+          <article class="editor-card">
+            <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=600&q=80" alt="Stüdyo Kayıt" />
+            <div class="editor-body">
+              <span class="mag-badge" style="background:#1d4ed8;">Müzik Kültürü</span>
+              <h3>Stüdyo Kayıtlarından Kulaklığımıza: Müziğin Üç Boyutlu Yolculuğu</h3>
+              <p>Sanatçının stüdyoda kaydettiği o ilk nota, kulağınıza ulaşana kadar hangi akustik süreçlerden geçiyor?</p>
+              <a href="#" class="sec-link" onclick="openArticle('Stüdyo Kayıtlarından Kulaklığımıza: Müziğin Üç Boyutlu Yolculuğu', 'Müzik prodüksiyonunun ilk adımı olan stüdyo kayıt aşamasından, final mastering sürecine kadar her nota titizlikle işlenir. Sanatçının vokal performansı ve enstrüman ayrışımı, profesyonel akustik mühendisleri tarafından binaural ses teknolojileriyle harmanlanır.\n\nODAK kulaklıkları, stüdyoda ses mühendisinin duyduğu o saf ve orijinal frekans eğrisini (Target Curve) bozmadan doğrudan kulak zarına iletmek üzere kalibre edilmiştir. Böylece dinleyici, şarkıyı stüdyo kayıt odasındaymış gibi üç boyutlu, enstrümanların yerini tek tek seçebileceği kusursuz bir ses sahnesinde deneyimleyebilir.')">Yazıyı Oku →</a>
+            </div>
+          </article>
+
+          <article class="editor-card">
+            <img src="https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=600&q=80" alt="Spor Kulaklığı" />
+            <div class="editor-body">
+              <span class="mag-badge" style="background:#7c3aed;">Yaşam Tarzı</span>
+              <h3>Koşu ve Spor Esnasında Doğru Kulaklık Seçimi Nasıl Yapılır?</h3>
+              <p>Ter geçirmezlik, kulak içi ergonomisi ve dış ses farkındalığı modlarıyla antrenman performansınızı artırın.</p>
+              <a href="#" class="sec-link" onclick="openArticle('Koşu ve Spor Esnasında Doğru Kulaklık Seçimi Nasıl Yapılır?', 'Yoğun antrenmanlar ve koşu seansları sırasında kulaklığın kulaktan düşmemesi ve ter koruma standartlarına (IPX4/IPX7) sahip olması hayati önem taşır. Ergonomik kanatçık tasarımı olmayan modeller yüksek tempoda hareket esnasında kayma yapabilir.\n\nAyrıca açık havada koşan sporcular için dış ses farkındalığı (Ambient Aware) modu, trafikte güvenliği sağlarken motivasyonu yüksek tutan güçlü bass performansından ödün vermez. Sporcu kulaklığı seçerken dikkat edilmesi gereken tüm ergonomik, suya dayanıklılık ve kablosuz kararlılık kriterlerini bu kapsamlı rehberde derledik.')">Yazıyı Oku →</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      
+      <section class="asym-section">
+        <div class="section-header-flex">
+          <h2 class="sec-title">Teknoloji & Ses Laboratuvarı</h2>
+          <span style="font-size: 0.9rem; color: #666; font-weight: 500;">En Son Yayınlananlar</span>
+        </div>
+        <div class="asym-grid">
+          
+          <div class="asym-big">
+            <div>
+              <img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?auto=format&fit=crop&w=800&q=80" alt="Titanyum Sürücü" />
+              <span class="mag-badge" style="background:#b45309;">AR-GE Raporu</span>
+              <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.8rem; margin: 10px 0 15px; color: #111;">Titanyum Sürücülerin Akustik Performansa Doğrudan Etkisi</h3>
+              <p style="color: #555; line-height: 1.6; font-size: 0.95rem;">Geleneksel polimer membranlar yerine havacılık endüstrisinden ilham alınarak geliştirilen titanyum kaplama sürücüler, tiz frekanslardaki bozulmaları tamamen ortadan kaldırıyor.</p>
+            </div>
+            <a href="#" class="sec-link" onclick="openArticle('Titanyum Sürücülerin Akustik Performansa Doğrudan Etkisi - Detaylı AR-GE Raporu', 'Geleneksel kağıt veya polimer sürücü membranları yüksek ses seviyelerinde esneyerek harmonik bozulmalara (distortion) yol açabilir. ODAK AR-GE laboratuvarlarında geliştirilen titanyum kaplama diyaframlar, olağanüstü yüksek mukavemeti ve hafifliği sayesinde en karmaşık müzik pasajlarında bile kusursuz bir impuls tepkisi sunar.\n\nBu teknik üstünlük, özellikle yüksek frekanslardaki (tizler) berraklığı artırırken, vokallerin ve enstrümanların birbirine karışmasını önleyerek saf bir akustik şeffaflık sağlar. Raporumuzun tam metninde, lazer interferometre test sonuçları ve frekans tepki eğrilerinin detaylı analizleri yer almaktadır.')">Raporu incele →</a>
+          </div>
+
+          <div class="asym-list">
+            <div class="asym-item">
+              <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=300&q=80" alt="Mini Hoparlör" />
+              <div>
+                <span style="font-size: 0.7rem; color: #ff5900; font-weight: 700; text-transform: uppercase;">inceleme</span>
+                <h4>Cebe Sığan Güç: ODAK GO Mini Hoparlör Testte</h4>
+                <a href="#" class="sec-link" style="font-size: 0.8rem;" onclick="openArticle('Cebe Sığan Güç: ODAK GO Mini Hoparlör Testte', 'Avuç içine sığacak kadar kompakt boyutuna rağmen şaşırtıcı derecede tok basslar ve yüksek ses çıkışı sunan GO Mini, açık hava etkinliklerinin vazgeçilmezi olmaya aday. Yapılan saha testlerinde batarya ömrü, bluetooth 5.4 kararlılığı ve IP67 su geçirmezlik direnci tam not aldı.')">Oku →</a>
+              </div>
+            </div>
+
+            <div class="asym-item">
+              <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=300&q=80" alt="Festival Sezonu" />
+              <div>
+                <span style="font-size: 0.7rem; color: #1d4ed8; font-weight: 700; text-transform: uppercase;">Müzik Kültürü</span>
+                <h4>Yaz Festivali Sezonu ve Taşınabilir Ses Sistemleri</h4>
+                <a href="#" class="sec-link" style="font-size: 0.8rem;" onclick="openArticle('Yaz Festivali Sezonu ve Taşınabilir Ses Sistemleri', 'Kamp alanlarında, plaj partilerinde ve açık hava konserlerinde kesintisiz eğlence sunan PartyBox serisi, güçlü ışık şovları ve devasa bass kapasitesiyle festival ruhunu doruklarda yaşatıyor.')">Oku →</a>
+              </div>
+            </div>
+
+            <div class="asym-item">
+              <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=300&q=80" alt="Ses Mühendisi" />
+              <div>
+                <span style="font-size: 0.7rem; color: #7c3aed; font-weight: 700; text-transform: uppercase;">Röportaj</span>
+                <h4>Ses Mühendisi Canan Demir ile Kulaklık Tasarımı Üzerine</h4>
+                <a href="#" class="sec-link" style="font-size: 0.8rem;" onclick="openArticle('Ses Mühendisi Canan Demir ile Kulaklık Tasarımı Üzerine Röportaj', 'Müzik prodüksiyonlarında kulaklık kalibrasyonunun kritik önemini ve ODAK imza ses eğrisinin arkasındaki matematiksel hesaplamaları Baş Ses Mühendisi Canan Demir ile derinlemesine konuştuk.')">Oku →</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      
+      <section class="guide-banner">
+        <div>
+          <h3>Hangi ODAK Kulaklık Sizin için Uygun?</h3>
+          <p>ister günlük işe gidiş gelişlerde aktif gürültü engelleme, ister profesyonel stüdyo kayıtları veya oyunlarda 7.1 uzamsal ses... ihtiyacınıza en uygun modeli bulmak için hazırladığımız interaktif rehbere göz atın.</p>
+          <a href="kulakliklar.html" class="mag-btn" style="background:#ff5900;">Karşılaştırma Rehberi →</a>
+        </div>
+        <div style="text-align: center;">
+          <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=600&q=80" alt="Kulaklık Rehberi" style="width: 100%; max-height: 280px; object-fit: cover; border-radius: 4px;" />
+        </div>
+      </section>
+
+      
+      <section class="product-promo-section">
+        <h3>Müziği Sadece Dinleme, Hisset.</h3>
+        <p>ODAK'ın ödüllü taşınabilir hoparlörleri ve kulaklıklarıyla en sevdiğin parçaları stüdyo kalitesinde deneyimle.</p>
+        <a href="catalog.html" class="mag-btn" style="background: #111; color: #fff;">Tüm Ürün Koleksiyonunu Keşfet →</a>
+      </section>
+
+      
+      <section class="newsletter-box">
+        <h3>Akustik Dünyadan ilk Sen Haberdar Ol</h3>
+        <p style="color: #666; font-size: 0.95rem; margin-top: 8px;">Yeni ürün lansmanları, özel dergi sayıları ve akustik bültenler doğrudan e-posta kutunda.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Bültenimize başarıyla kaydoldunuz!');">
+          <input type="email" class="newsletter-input" placeholder="E-posta adresinizi girin..." required />
+          <button type="submit" class="newsletter-btn">Abone Ol</button>
+        </form>
+      </section>
+
+    </main>
+
+    
+    <div id="articleModal">
+      <div class="modal-box">
+        <button class="close-modal" onclick="closeArticle()">&times;</button>
+        <span class="mag-badge" style="margin-bottom: 10px;">ODAK Dergi</span>
+        <h2 id="modalTitle" style="font-family: 'Oswald', sans-serif; font-size: 2rem; margin-top: 0; color: #111;"></h2>
+        <p id="modalBody" style="line-height: 1.8; color: #444; font-size: 1.05rem; white-space: pre-line;"></p>
+      </div>
+    </div>
+
+    
+    <div class="floating-chat-bubble" onclick="window.location.href='contact.html#yardim'" title="Canlı Destek"><span>💬¬</span><span>Chat</span></div>
+
+    
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>MAĞAZA</h4>
+          <a href="catalog.html">Taşınabilir Hoparlörler</a>
+          <a href="parti.html">Parti Serisi</a>
+          <a href="kulakliklar.html">Kulak Üstü Kulaklıklar</a>
+          <a href="kulakliklar.html">Kablosuz Kulak içi</a>
+        </div>
+        <div class="footer-col">
+          <h4>DESTEK</h4>
+          <a href="contact.html">Bize Ulaşın</a>
+          <a href="garanti.html">Garanti Talebi</a>
+          <a href="contact.html">Sıkça Sorulan Sorular</a>
+          <a href="garanti.html">Ürün Desteği</a>
+        </div>
+        <div class="footer-col">
+          <h4>HAKKIMIZDA</h4>
+          <a href="about.html">Odak Kurumsal</a>
+          <a href="../gizlilik.html">Gizlilik Politikası</a>
+          <a href="terms.html">Kullanım Şartları</a>
+          <a href="about.html">Sürdürülebilirlik</a>
+        </div>
+        <div class="footer-col">
+          <h4>BİZİ TAKİP EDİN</h4>
+          <div class="footer-social-icons">
+            <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.6 5H18V0h-3.808C10.597 0 9 1.583 9 4.615V8z"/></svg></a>
+            <a href="#" aria-label="X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 0 0-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg></a>
+          </div>
+          <p class="footer-logo-big">ODAK</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ODAK Audio International Inc. Tüm hakları saklıdır.</span>
+        <span>Türkiye Resmi Mağazası</span>
+      </div>
+    </footer>
+
+    
+    <div id="searchModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: flex-start; padding-top: 60px;">
+      <div style="background: #fff; width: 90%; max-width: 650px; padding: 25px 30px; border-radius: 8px; position: relative;">
+        <button id="closeSearchBtn" style="position: absolute; top: -14px; right: -14px; background: #fff; border: 2px solid #ddd; width: 36px; height: 36px; border-radius: 50%; font-size: 1.4rem; font-weight: bold; cursor: pointer;">&times;</button>
+        <div style="display: flex; align-items: center; border: 2px solid #ff5900; border-radius: 4px; padding: 4px 12px; background: #fff;">
+          <input type="text" id="searchInput" placeholder="Aramak istediğiniz ürünü yazın..." style="width: 100%; padding: 12px 8px; border: none; outline: none;" autofocus>
+          <div id="searchDropdownResults"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function updateHeaderCartBadge() {
+        const cartCountBadge = document.getElementById('headerCartCount');
+        let cartItems = JSON.parse(localStorage.getItem('odakCartItems')) || [];
+        let totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+        if(cartCountBadge) cartCountBadge.textContent = totalCount;
+      }
+
+      function openArticle(title, text) {
+        event.preventDefault();
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('modalBody').textContent = text;
+        document.getElementById('articleModal').style.display = 'flex';
+      }
+      function closeArticle() {
+        document.getElementById('articleModal').style.display = 'none';
+      }
+
+      const searchModal = document.getElementById('searchModal');
+      const searchIconBtn = document.getElementById('searchIconBtn');
+      const closeSearchBtn = document.getElementById('closeSearchBtn');
+      if(searchIconBtn) searchIconBtn.addEventListener('click', e => { e.preventDefault(); searchModal.style.display = 'flex'; });
+      if(closeSearchBtn) closeSearchBtn.addEventListener('click', () => searchModal.style.display = 'none');
+
+      window.addEventListener('DOMContentLoaded', updateHeaderCartBadge);
+    </script>
+    <script src="../js/search.js"></script>
+    <script src="../js/chatbot.js"></script>
+  </body>
+</html>
+

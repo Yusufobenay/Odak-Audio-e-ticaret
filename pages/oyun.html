@@ -1,0 +1,474 @@
+﻿<!doctype html>
+<html lang="tr">
+  <head>
+    <meta name="author" content="Yusuf Oben Ay">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="ODAK Oyun ve Yayın Ekipmanları - Kusursuz Ses ve iletişim" />
+    <title>Oyun & Yayın | ODAK Audio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css" />
+    
+    <style>
+      * { box-sizing: border-box; }
+      body { background-color: #fcfcfc; color: #1a1a1a; margin: 0; font-family: 'Roboto', sans-serif; -webkit-font-smoothing: antialiased; }
+
+      .top-green-bar { background-color: #276e33; color: #ffffff; font-size: 0.8rem; font-weight: 500; padding: 7px 0; }
+      .top-green-bar a { color: #ffffff; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+      header { background: #ffffff; border-bottom: 1px solid #e0e0e0; padding: 14px 0; position: sticky; top: 0; z-index: 100; }
+      .odak-badge-logo { background: #ff5900; color: #ffffff; font-weight: 900; letter-spacing: -0.5px; padding: 6px 14px; display: inline-flex; align-items: center; gap: 2px; text-decoration: none; font-family: Arial, sans-serif; text-transform: uppercase; border-radius: 2px; }
+      .support-nav { display: flex; gap: 26px; }
+      .support-nav a { font-weight: 700; font-size: 0.88rem; color: #222; text-decoration: none; transition: color 0.2s; }
+      .support-nav a:hover, .support-nav a.active { color: #ff5900; }
+      .header-actions { display: flex; align-items: center; gap: 22px; }
+      .action-icon-link { color: #111111; text-decoration: none; position: relative; display: inline-flex; align-items: center; }
+      .action-svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2; fill: none; }
+      .cart-badge { position: absolute; top: -8px; right: -10px; background-color: #ff5900; color: #ffffff; font-size: 0.7rem; font-weight: 700; width: 17px; height: 17px; display: flex; align-items: center; justify-content: center; border-radius: 2px; }
+
+      .catalog-layout { max-width: 1300px; margin: 40px auto 100px; padding: 0 20px; display: grid; grid-template-columns: 260px 1fr; gap: 40px; align-items: start; }
+
+      .sidebar-filter { position: sticky; top: 100px; }
+      .filter-title { font-family: 'Oswald', sans-serif; font-size: 1.4rem; font-weight: 800; margin: 0 0 20px; border-bottom: 2px solid #111; padding-bottom: 10px; text-transform: uppercase; }
+      .filter-group { border-bottom: 1px solid #e0e0e0; padding-bottom: 15px; margin-bottom: 15px; }
+      details { overflow: anchor-none; }
+      details > summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+      details > summary::-webkit-details-marker { display: none; }
+      .filter-header-text { font-size: 0.95rem; font-weight: 700; color: #333; margin: 0; }
+      .filter-icon { font-size: 1.4rem; font-weight: 400; color: #555; line-height: 1; }
+      details[open] summary .filter-icon::after { content: "-"; }
+      details:not([open]) summary .filter-icon::after { content: "+"; }
+      .filter-content { margin-top: 15px; display: flex; flex-direction: column; gap: 10px; }
+      .category-links { list-style: none; padding: 0; margin: 0; }
+      .category-links li { margin-bottom: 10px; }
+      .category-links a { text-decoration: none; color: #333; font-size: 0.95rem; font-weight: 500; display: block; transition: color 0.2s; }
+      .category-links a:hover, .category-links a.active { color: #ff5900; font-weight: 700; }
+      .custom-checkbox { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #555; cursor: pointer; }
+      .custom-checkbox input { accent-color: #ff5900; width: 16px; height: 16px; cursor: pointer; }
+
+      .product-area-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+      .product-area-title { font-family: 'Oswald', sans-serif; font-size: 2.2rem; font-weight: 800; margin: 0; color: #111; text-transform: uppercase; }
+      .product-count { color: #777; font-size: 0.9rem; font-weight: 500; }
+      .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 30px; }
+      .product-card { background: #ffffff; border: 1px solid #eee; border-radius: 4px; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; position: relative; padding-bottom: 15px; }
+      .product-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+      .product-card:hover .product-title { color: #ff5900; }
+      .badge-wrap { position: absolute; top: 10px; left: 10px; display: flex; flex-direction: column; gap: 5px; z-index: 2; }
+      .badge { color: #ffffff; font-family: 'Oswald', sans-serif; font-size: 0.75rem; font-weight: 700; padding: 4px 8px; border-radius: 2px; letter-spacing: 0.5px; width: fit-content; }
+      .badge.discount { background-color: #ff5900; }
+      .badge.installment { background-color: #111; }
+      .badge.new { background-color: #276e33; }
+      .card-img-wrap { background-color: #ffffff; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; padding: 20px; margin-bottom: 15px; border-radius: 4px 4px 0 0; position: relative; overflow: hidden; }
+      .card-img-wrap img { width: 90%; height: 90%; object-fit: contain; mix-blend-mode: darken; transition: transform 0.3s; }
+      .product-card:hover .card-img-wrap img { transform: scale(1.05); }
+      .card-text-content { padding: 0 15px; display: flex; flex-direction: column; flex-grow: 1; }
+      .rating { display: flex; align-items: center; gap: 5px; margin-bottom: 8px; }
+      .star { color: #f5b026; font-size: 1.1rem; }
+      .rating-score { font-size: 0.8rem; font-weight: 700; color: #333; }
+      .rating-count { font-size: 0.75rem; color: #888; }
+      .product-title { font-family: 'Roboto', sans-serif; font-size: 1rem; font-weight: 700; color: #111; margin: 0 0 15px; line-height: 1.4; transition: color 0.2s; }
+      .price-area { margin-bottom: 15px; }
+      .old-price { font-size: 0.85rem; color: #888; text-decoration: line-through; display: block; margin-bottom: 2px; }
+      .new-price { font-family: 'Oswald', sans-serif; font-size: 1.4rem; font-weight: 800; color: #111; }
+      .add-to-cart-btn { width: 100%; background-color: transparent; color: #111; font-family: 'Oswald', sans-serif; font-size: 0.9rem; font-weight: 700; text-align: center; text-transform: uppercase; padding: 10px 0; border: 2px solid #111; border-radius: 2px; cursor: pointer; transition: all 0.2s; margin-top: auto; }
+      .product-card:hover .add-to-cart-btn { background-color: #ff5900; color: #fff; border-color: #ff5900; }
+      .floating-chat-bubble { position: fixed; bottom: 25px; right: 25px; background-color: #ff5900; color: #ffffff; padding: 14px 22px; border-radius: 30px; display: flex; align-items: center; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.5px; cursor: pointer; box-shadow: 0 6px 20px rgba(255, 89, 0, 0.4); z-index: 1000; transition: transform 0.2s, background-color 0.2s; }
+      .floating-chat-bubble:hover { transform: scale(1.05); background-color: #e04e00; }
+      
+      .site-footer { background-color: #111111; color: #ffffff; padding: 70px 20px 30px; border-top: 4px solid #ff5900; }
+      .footer-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 50px; }
+      .footer-col h4 { color: #ff5900; font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 800; text-transform: uppercase; margin: 0 0 20px; letter-spacing: 0.5px; }
+      .footer-col a { display: block; color: #bbbbbb; text-decoration: none; font-size: 0.9rem; margin-bottom: 12px; transition: color 0.2s; }
+      .footer-col a:hover { color: #ffffff; }
+      .footer-social-icons { display: flex; gap: 14px; margin-bottom: 20px; align-items: center; }
+      .footer-social-icons a { color: #ffffff; transition: color 0.2s; display: inline-flex; width: 24px; height: 24px; }
+      .footer-social-icons a:hover { color: #ff5900; }
+      .footer-logo-big { font-family: 'Oswald', sans-serif; font-size: 3.8rem; font-weight: 800; color: #ff5900; line-height: 1; margin: 0; letter-spacing: 1px; }
+      .footer-bottom { max-width: 1240px; margin: 0 auto; border-top: 1px solid #2a2a2a; padding-top: 20px; display: flex; justify-content: space-between; font-size: 0.8rem; color: #777; }
+
+      @media (max-width: 900px) { .catalog-layout { grid-template-columns: 1fr; } .sidebar-filter { position: relative; top: 0; margin-bottom: 40px; } .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 600px) { .product-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; gap: 10px; text-align: center; } }
+    </style>
+  </head>
+  <body>
+    
+    <div class="top-green-bar">
+      <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px; max-width: 1240px; margin: 0 auto;">
+        <span>ODAK Müşteri Deneyimi Merkezi</span>
+        <a href="catalog.html">🛒 Alışverişe devam edin</a>
+      </div>
+    </div>
+
+    <header>
+      <div class="container" style="display: flex; align-items: center; justify-content: space-between; padding: 0 20px; max-width: 1240px; margin: 0 auto;">
+        <div style="display: flex; align-items: center; gap: 32px;">
+          <a class="odak-badge-logo" href="../index.html">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="3" /><circle cx="12" cy="12" r="3.5" fill="#ffffff" /></svg>
+            <span style="font-size: 1.45rem; font-weight: 900; letter-spacing: -0.5px; font-family: 'Oswald', sans-serif;">DAK</span>
+          </a>
+        </div>
+        <div class="header-actions">
+          <a href="#" class="action-icon-link" id="searchIconBtn" title="Ara"><svg class="action-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg></a>
+          <a href="login.html" class="action-icon-link" title="Giriş Yap"><svg class="action-svg" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+          <a href="cart.html" class="action-icon-link" title="Sepet"><svg class="action-svg" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5" fill="currentColor"/><circle cx="18" cy="20" r="1.5" fill="currentColor"/><path d="M1 1h4l2.68 12.39a2 2 0 0 0 2 1.61h8.72a2 2 0 0 0 2-1.61L22 6H6"/></svg><span class="cart-badge" id="headerCartCount">0</span></a>
+        </div>
+      </div>
+    </header>
+
+    <main class="catalog-layout">
+      
+      <aside class="sidebar-filter">
+        <div class="filter-group" style="border:none; padding-bottom: 5px;">
+          <ul class="category-links">
+            <li><a href="catalog.html">Taşınabilir Hoparlörler</a></li>
+            <li><a href="kulakliklar.html">Kulaklıklar</a></li>
+            <li><a href="parti.html">Parti Serisi</a></li>
+            <li><a href="oyun.html" class="active">Oyun & Yayın</a></li>
+          </ul>
+        </div>
+
+        <h3 class="filter-title">Filtreler</h3>
+        
+        <details class="filter-group" open>
+          <summary>
+            <span class="filter-header-text">Kategori</span>
+            <span class="filter-icon"></span>
+          </summary>
+          <div class="filter-content">
+            <label class="custom-checkbox"><input type="checkbox" class="filter-checkbox" data-filter="cat" data-val="kulaklik"> Oyuncu Kulaklıkları (5)</label>
+            <label class="custom-checkbox"><input type="checkbox" class="filter-checkbox" data-filter="cat" data-val="mikrofon"> Yayıncı Mikrofonları (2)</label>
+            <label class="custom-checkbox"><input type="checkbox" class="filter-checkbox" data-filter="cat" data-val="hoparlor"> PC Hoparlörleri (2)</label>
+          </div>
+        </details>
+
+        <details class="filter-group" open>
+          <summary>
+            <span class="filter-header-text">Bağlantı Tipi</span>
+            <span class="filter-icon"></span>
+          </summary>
+          <div class="filter-content">
+            <label class="custom-checkbox"><input type="checkbox" class="filter-checkbox" data-filter="conn" data-val="usb"> 2.4GHz Gecikmesiz USB (4)</label>
+            <label class="custom-checkbox"><input type="checkbox" class="filter-checkbox" data-filter="conn" data-val="kablolu"> Kablolu (3)</label>
+            <label class="custom-checkbox"><input type="checkbox" class="filter-checkbox" data-filter="conn" data-val="bluetooth"> Bluetooth (5)</label>
+          </div>
+        </details>
+
+        <details class="filter-group" open>
+          <summary>
+            <span class="filter-header-text">Özellikler</span>
+            <span class="filter-icon"></span>
+          </summary>
+          <div class="filter-content">
+            <label class="custom-checkbox"><input type="checkbox" class="filter-checkbox" data-filter="feat" data-val="surround"> 7.1 Surround Ses (4)</label>
+            <label class="custom-checkbox"><input type="checkbox" class="filter-checkbox" data-filter="feat" data-val="rgb"> RGB Aydınlatma (5)</label>
+            <label class="custom-checkbox"><input type="checkbox" class="filter-checkbox" data-filter="feat" data-val="mic"> Çıkarılabilir Mikrofon (3)</label>
+          </div>
+        </details>
+
+        <details class="filter-group" style="border:none;">
+          <summary>
+            <span class="filter-header-text">Platform</span>
+            <span class="filter-icon"></span>
+          </summary>
+          <div class="filter-content">
+            <label class="custom-checkbox"><input type="checkbox" class="filter-checkbox" data-filter="plat" data-val="pc"> PC & Mac (9)</label>
+            <label class="custom-checkbox"><input type="checkbox" class="filter-checkbox" data-filter="plat" data-val="playstation"> PlayStation (6)</label>
+            <label class="custom-checkbox"><input type="checkbox" class="filter-checkbox" data-filter="plat" data-val="xbox"> Xbox (5)</label>
+          </div>
+        </details>
+      </aside>
+
+      <section class="product-area">
+        <div class="product-area-header">
+          <h1 class="product-area-title">Oyun & Yayın Ekipmanları</h1>
+          <span class="product-count" id="productCount">9 Ürün</span>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card" data-price="4504" data-cat="kulaklik" data-conn="usb bluetooth" data-feat="surround rgb mic" data-plat="pc playstation xbox">
+            <div class="badge-wrap">
+              <span class="badge discount">%10 İNDİRİM</span>
+              <span class="badge installment">Peşin Fiyatına 6 Taksit</span>
+            </div>
+            <a href="#" class="card-img-wrap"><img src="../assets/images/oyun1.jpg" alt="ODAK Quantum 900" /></a>
+            <div class="card-text-content">
+              <div class="rating"><span class="star">★</span><span class="rating-score">4.9</span><span class="rating-count">(112 Değerlendirme)</span></div>
+              <h2 class="product-title">ODAK Quantum 900 Kablosuz 7.1 Oyuncu Kulaklığı</h2>
+              <div class="price-area">
+                <span class="old-price">5.299 TL</span>
+                <span class="new-price">4.504 TL</span>
+              </div>
+              <button class="add-to-cart-btn">Sepete Ekle</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-price="3499" data-cat="mikrofon" data-conn="usb" data-feat="rgb mic" data-plat="pc playstation">
+            <div class="badge-wrap"><span class="badge installment">Peşin Fiyatına 6 Taksit</span></div>
+            <a href="#" class="card-img-wrap"><img src="../assets/images/oyun2.jpg" alt="ODAK StreamMic Pro" /></a>
+            <div class="card-text-content">
+              <div class="rating"><span class="star">★</span><span class="rating-score">5.0</span><span class="rating-count">(34 Değerlendirme)</span></div>
+              <h2 class="product-title">ODAK StreamMic Pro RGB Çift Kapsüllü Yayıncı Mikrofonu</h2>
+              <div class="price-area"><span class="new-price">3.499 TL</span></div>
+              <button class="add-to-cart-btn">Sepete Ekle</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-price="6150" data-cat="kulaklik" data-conn="usb kablolu" data-feat="surround rgb mic" data-plat="pc playstation xbox">
+            <div class="badge-wrap"><span class="badge new">YENİ ÜRÜN</span></div>
+            <a href="#" class="card-img-wrap"><img src="../assets/images/oyun3.jpg" alt="ODAK Quantum One" /></a>
+            <div class="card-text-content">
+              <div class="rating"><span class="star">★</span><span class="rating-score">4.8</span><span class="rating-count">(76 Değerlendirme)</span></div>
+              <h2 class="product-title">ODAK Quantum One Kafa Takip Sistemli PC Oyuncu Kulaklığı</h2>
+              <div class="price-area"><span class="new-price">6.150 TL</span></div>
+              <button class="add-to-cart-btn">Sepete Ekle</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-price="3599" data-cat="kulaklik" data-conn="usb bluetooth" data-feat="" data-plat="pc playstation">
+            <div class="badge-wrap"><span class="badge discount">%10 İNDİRİM</span></div>
+            <a href="#" class="card-img-wrap"><img src="../assets/images/oyun4.jpg" alt="ODAK Quantum TWS" /></a>
+            <div class="card-text-content">
+              <div class="rating"><span class="star">★</span><span class="rating-score">4.7</span><span class="rating-count">(55 Değerlendirme)</span></div>
+              <h2 class="product-title">ODAK Quantum TWS Düşük Gecikmeli Oyuncu Kulak İçi Kulaklık</h2>
+              <div class="price-area">
+                <span class="old-price">3.999 TL</span>
+                <span class="new-price">3.599 TL</span>
+              </div>
+              <button class="add-to-cart-btn">Sepete Ekle</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-price="5299" data-cat="hoparlor" data-conn="bluetooth kablolu" data-feat="rgb" data-plat="pc">
+            <a href="#" class="card-img-wrap"><img src="../assets/images/oyun5.jpg" alt="ODAK Arena 5" /></a>
+            <div class="card-text-content">
+              <div class="rating"><span class="star">★</span><span class="rating-score">4.9</span><span class="rating-count">(28 Değerlendirme)</span></div>
+              <h2 class="product-title">ODAK Arena 5 Bluetooth Destekli Masaüstü Oyuncu Hoparlörü</h2>
+              <div class="price-area"><span class="new-price">5.299 TL</span></div>
+              <button class="add-to-cart-btn">Sepete Ekle</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-price="2199" data-cat="kulaklik" data-conn="kablolu usb" data-feat="surround mic" data-plat="pc playstation xbox">
+             <div class="badge-wrap"><span class="badge installment">Peşin Fiyatına 6 Taksit</span></div>
+            <a href="#" class="card-img-wrap"><img src="../assets/images/oyun6.jpg" alt="ODAK Quantum 400" /></a>
+            <div class="card-text-content">
+              <div class="rating"><span class="star">★</span><span class="rating-score">4.6</span><span class="rating-count">(210 Değerlendirme)</span></div>
+              <h2 class="product-title">ODAK Quantum 400 Çok Platformlu Kablolu Oyuncu Kulaklığı</h2>
+              <div class="price-area"><span class="new-price">2.199 TL</span></div>
+              <button class="add-to-cart-btn">Sepete Ekle</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-price="1599" data-cat="mikrofon" data-conn="usb kablolu" data-feat="" data-plat="pc">
+            <div class="badge-wrap"><span class="badge discount">%20 İNDİRİM</span></div>
+            <a href="#" class="card-img-wrap"><img src="../assets/images/oyun7.jpg" alt="ODAK StreamMic Compact" /></a>
+            <div class="card-text-content">
+              <div class="rating"><span class="star">★</span><span class="rating-score">4.8</span><span class="rating-count">(64 Değerlendirme)</span></div>
+              <h2 class="product-title">ODAK StreamMic Compact Tak-Çalıştır USB Masaüstü Mikrofon</h2>
+              <div class="price-area">
+                <span class="old-price">1.999 TL</span>
+                <span class="new-price">1.599 TL</span>
+              </div>
+              <button class="add-to-cart-btn">Sepete Ekle</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-price="3899" data-cat="kulaklik" data-conn="usb bluetooth" data-feat="surround mic" data-plat="pc playstation">
+             <div class="badge-wrap"><span class="badge new">YENİ EKLENDİ</span></div>
+            <a href="#" class="card-img-wrap"><img src="../assets/images/oyun8.jpg" alt="ODAK Quantum 610" /></a>
+            <div class="card-text-content">
+              <div class="rating"><span class="star">★</span><span class="rating-score">4.9</span><span class="rating-count">(41 Değerlendirme)</span></div>
+              <h2 class="product-title">ODAK Quantum 610 Wireless Kayıpsız Ses Oyuncu Kulaklığı</h2>
+              <div class="price-area"><span class="new-price">3.899 TL</span></div>
+              <button class="add-to-cart-btn">Sepete Ekle</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-price="7499" data-cat="hoparlor" data-conn="bluetooth kablolu usb" data-feat="rgb" data-plat="pc playstation">
+            <div class="badge-wrap"><span class="badge installment">Peşin Fiyatına 6 Taksit</span></div>
+            <a href="#" class="card-img-wrap"><img src="../assets/images/oyun9.jpg" alt="ODAK Arena 7" /></a>
+            <div class="card-text-content">
+              <div class="rating"><span class="star">★</span><span class="rating-score">5.0</span><span class="rating-count">(19 Değerlendirme)</span></div>
+              <h2 class="product-title">ODAK Arena 7 Çift Kanallı 2.1 RGB Oyuncu Hoparlör Sistemi</h2>
+              <div class="price-area"><span class="new-price">7.499 TL</span></div>
+              <button class="add-to-cart-btn">Sepete Ekle</button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div class="floating-chat-bubble" onclick="window.location.href='contact.html#yardim'" title="Canlı Destek Başlat">
+      <span style="font-size: 1.2rem;">💬</span>
+      <span>Chat</span>
+    </div>
+
+    <!-- KUSURSUZ FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>MAĞAZA</h4>
+          <a href="catalog.html">Taşınabilir Hoparlörler</a>
+          <a href="parti.html">Parti Serisi</a>
+          <a href="kulakliklar.html">Kulak Üstü Kulaklıklar</a>
+          <a href="kulakliklar.html">Kablosuz Kulak İçi</a>
+        </div>
+        <div class="footer-col">
+          <h4>DESTEK</h4>
+          <a href="contact.html">Bize Ulaşın</a>
+          <a href="garanti.html">Garanti Talebi</a>
+          <a href="contact.html">Sıkça Sorulan Sorular</a>
+          <a href="garanti.html">Ürün Desteği</a>
+        </div>
+        <div class="footer-col">
+          <h4>HAKKIMIZDA</h4>
+          <a href="about.html">Odak Kurumsal</a>
+          <a href="../gizlilik.html">Gizlilik Politikası</a>
+          <a href="terms.html">Kullanım Şartları</a>
+          <a href="about.html">Sürdürülebilirlik</a>
+        </div>
+        <div class="footer-col">
+          <h4>BİZİ TAKİP EDİN</h4>
+          <div class="footer-social-icons" style="display: flex; gap: 14px; margin-bottom: 20px; align-items: center;">
+            <a href="#" aria-label="Instagram" style="color: white; display: inline-flex; width: 24px; height: 24px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            <a href="#" aria-label="Facebook" style="color: white; display: inline-flex; width: 24px; height: 24px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <a href="#" aria-label="X" style="color: white; display: inline-flex; width: 24px; height: 24px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="4" x2="20" y2="20"></line><line x1="20" y1="4" x2="4" y2="20"></line></svg></a>
+            <a href="#" aria-label="YouTube" style="color: white; display: inline-flex; width: 24px; height: 24px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor"></polygon></svg></a>
+          </div>
+          <p class="footer-logo-big" style="color: #ff5900; font-family: 'Oswald', sans-serif; font-size: 3.8rem; font-weight: 800; line-height: 1; margin: 0; letter-spacing: 1px;">ODAK</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 ODAK Audio International Inc. Tüm hakları saklıdır.</span>
+        <span>Türkiye Resmi Mağazası</span>
+      </div>
+    </footer>
+
+    <!-- ARAMA MODALI -->
+    <div id="searchModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: flex-start; padding-top: 60px;">
+      <div style="background: #fff; width: 90%; max-width: 650px; padding: 25px 30px; border-radius: 8px; position: relative; box-shadow: 0 15px 40px rgba(0,0,0,0.25);">
+        <button id="closeSearchBtn" type="button" style="position: absolute; top: -14px; right: -14px; background: #ffffff; border: 2px solid #ddd; width: 36px; height: 36px; border-radius: 50%; font-size: 1.4rem; font-weight: bold; cursor: pointer; color: #333; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.15); transition: background 0.2s, color 0.2s;" title="Kapat">&times;</button>
+        <div style="display: flex; align-items: center; border: 2px solid #ff5900; border-radius: 4px; padding: 4px 12px; background: #fff;">
+          <input type="text" id="searchInput" placeholder="Aramak istediğiniz ürünü yazın..." style="width: 100%; padding: 12px 8px; border: none; font-size: 1rem; outline: none; font-family: 'Roboto', sans-serif;" autofocus>
+          <svg style="width: 22px; height: 22px; stroke: #ff5900; stroke-width: 2.5; fill: none; flex-shrink: 0;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+        </div>
+        <div id="searchDropdownResults" style="margin-top: 15px; max-height: 350px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 0.8rem; font-weight: 700; color: #888; text-transform: uppercase; margin-bottom: 5px;">Popüler Kategoriler & Aramalar</div>
+          <a href="parti.html">Parti Serisi ve Işık Şovları</a>
+          <a href="catalog.html">Taşınabilir Hoparlörler (GO, Pulse, BoomBox)</a>
+          <a href="kulakliklar.html">Kulak Üstü & Kablosuz TWS Kulaklıklar</a>
+          <a href="oyun.html">Oyun & Yayın Ekipmanları (Quantum Kulaklıklar)</a>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      function updateHeaderCartBadge() {
+        const cartCountBadge = document.getElementById('headerCartCount');
+        let cartItems = JSON.parse(localStorage.getItem('odakCartItems')) || [];
+        let totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+        if(cartCountBadge) cartCountBadge.textContent = totalCount;
+      }
+
+      const searchModal = document.getElementById('searchModal');
+      const searchIconBtn = document.getElementById('searchIconBtn');
+      const closeSearchBtn = document.getElementById('closeSearchBtn');
+      const searchInput = document.getElementById('searchInput');
+
+      if(searchIconBtn) {
+        searchIconBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          searchModal.style.display = 'flex';
+          setTimeout(() => searchInput.focus(), 100);
+        });
+      }
+
+      if(closeSearchBtn) {
+        closeSearchBtn.addEventListener('click', function() {
+          searchModal.style.display = 'none';
+        });
+      }
+
+      window.addEventListener('click', function(e) {
+        if (e.target === searchModal) {
+          searchModal.style.display = 'none';
+        }
+      });
+
+      const checkboxes = document.querySelectorAll('.filter-checkbox');
+      const productCards = document.querySelectorAll('.product-card');
+      const productCountSpan = document.getElementById('productCount');
+
+      checkboxes.forEach(cb => {
+        cb.addEventListener('change', filterProducts);
+      });
+
+      function filterProducts() {
+        const selectedCats = Array.from(document.querySelectorAll('[data-filter="cat"]:checked'));
+        const selectedConns = Array.from(document.querySelectorAll('[data-filter="conn"]:checked'));
+        const selectedFeats = Array.from(document.querySelectorAll('[data-filter="feat"]:checked'));
+        const selectedPlats = Array.from(document.querySelectorAll('[data-filter="plat"]:checked'));
+
+        let visibleCount = 0;
+
+        productCards.forEach(card => {
+          const cat = card.getAttribute('data-cat');
+          const conns = card.getAttribute('data-conn').split(' ');
+          const feats = card.getAttribute('data-feat').split(' ');
+          const plats = card.getAttribute('data-plat').split(' ');
+
+          let matchCat = selectedCats.length === 0 || selectedCats.some(cb => cb.getAttribute('data-val') === cat);
+          let matchConn = selectedConns.length === 0 || selectedConns.some(cb => conns.includes(cb.getAttribute('data-val')));
+          let matchFeat = selectedFeats.length === 0 || selectedFeats.every(cb => feats.includes(cb.getAttribute('data-val')));
+          let matchPlat = selectedPlats.length === 0 || selectedPlats.every(cb => plats.includes(cb.getAttribute('data-val')));
+
+          if (matchCat && matchConn && matchFeat && matchPlat) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        productCountSpan.textContent = `${visibleCount} Ürün`;
+      }
+
+      document.addEventListener('click', function(e) {
+        if (e.target && e.target.classList.contains('add-to-cart-btn')) {
+          const card = e.target.closest('.product-card');
+          const title = card.querySelector('.product-title').textContent.trim();
+          const priceText = card.querySelector('.new-price').textContent.trim();
+          
+          const priceValue = parseFloat(priceText.replace(' TL', '').replace(/\./g, '').replace(',', '.'));
+          const imgSrc = card.querySelector('.card-img-wrap img').getAttribute('src');
+
+          let cartItems = JSON.parse(localStorage.getItem('odakCartItems')) || [];
+
+          let existingItem = cartItems.find(item => item.title === title);
+          if (existingItem) {
+            existingItem.quantity += 1;
+          } else {
+            cartItems.push({
+              title: title,
+              price: priceValue,
+              priceFormatted: priceText,
+              img: imgSrc,
+              quantity: 1
+            });
+          }
+
+          localStorage.setItem('odakCartItems', JSON.stringify(cartItems));
+          updateHeaderCartBadge();
+
+          alert(`"${title}" sepete eklendi!`);
+        }
+      });
+
+      window.addEventListener('DOMContentLoaded', updateHeaderCartBadge);
+    </script>
+    <script src="../js/search.js"></script>
+    <script src="../js/chatbot.js"></script>
+  </body>
+</html>

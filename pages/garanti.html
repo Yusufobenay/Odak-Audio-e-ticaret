@@ -1,0 +1,409 @@
+﻿<!doctype html>
+<html lang="tr">
+  <head>
+    <meta name="author" content="Yusuf Oben Ay">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="ODAK Audio - Garanti Talebi ve Müşteri Destek Merkezi" />
+    <title>Garanti Talebi | ODAK Audio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css" />
+    
+    <style>
+      * { box-sizing: border-box; }
+      body { background-color: #ffffff; color: #1a1a1a; margin: 0; font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; }
+      .odak-condensed { font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; }
+
+      
+      .top-green-bar { background-color: #276e33; color: #ffffff; font-size: 0.8rem; font-weight: 500; padding: 8px 0; }
+
+      
+      header { background: #ffffff; padding: 18px 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e0e0e0; }
+      .odak-badge-logo { background: #ff5900; color: #ffffff; padding: 6px 14px; display: inline-flex; align-items: center; gap: 4px; text-decoration: none; border-radius: 2px; }
+      
+      .support-nav { display: flex; gap: 24px; margin-left: 30px; align-items: center; }
+      .support-nav a { font-weight: 500; font-size: 0.95rem; color: #111; text-decoration: none; transition: color 0.2s; }
+      .support-nav a:hover, .support-nav a.active { color: #ff5900; }
+      
+      .header-actions { display: flex; align-items: center; gap: 22px; }
+      .action-icon-link { color: #111; text-decoration: none; display: inline-flex; position: relative; }
+      .action-icon-link:hover { color: #ff5900; }
+      .action-svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .cart-badge { position: absolute; top: -8px; right: -10px; background-color: #ff5900; color: #ffffff; font-size: 0.7rem; font-weight: 700; width: 17px; height: 17px; display: flex; align-items: center; justify-content: center; border-radius: 2px; }
+
+      
+      .warranty-hero { background-color: #e5e9e5; border-bottom: 1px solid #d0dad1; position: relative; overflow: hidden; padding: 40px 20px 45px; }
+      
+      .breadcrumb { font-size: 0.85rem; color: #111; margin-bottom: 24px; font-weight: 500; display: flex; align-items: center; gap: 6px; position: relative; z-index: 3; }
+      .breadcrumb a { color: #111; text-decoration: none; display: flex; align-items: center; gap: 4px; transition: color 0.2s; }
+      .breadcrumb a:hover { color: #ff5900; }
+      
+      .warranty-title { font-size: clamp(3rem, 5.5vw, 4.5rem); color: #111111; margin: 0; line-height: 1; position: relative; z-index: 3; }
+      
+      .hero-pattern { position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 260px; height: 260px; opacity: 1; pointer-events: none; z-index: 1; }
+
+      
+      .warranty-info-box { max-width: 960px; margin: 30px auto 40px; padding: 0 20px; font-size: 0.95rem; line-height: 1.6; color: #333; }
+      .warranty-info-box p { margin: 0 0 16px; }
+      .prominent-black-note { color: #111; font-weight: 700; }
+
+      
+      .form-big-cream-wrapper { background-color: #f1f0ea; border-top: 1px solid #e0dfd9; border-bottom: 1px solid #e0dfd9; padding: 45px 20px; }
+      .form-container { max-width: 960px; margin: 0 auto; }
+      
+      .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 24px; }
+      .form-field { display: flex; flex-direction: column; width: 100%; position: relative; justify-content: flex-end; }
+      .form-field-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+      .form-field > label, .form-field-header > label { font-size: 0.85rem; color: #333; font-weight: 600; margin-bottom: 6px; }
+      
+      .odak-line-input, .odak-line-select, .odak-line-textarea { 
+        width: 100%; 
+        height: 46px; 
+        border: none; 
+        border-bottom: 1.5px solid #111; 
+        background-color: #e5e4de; 
+        padding: 10px 14px; 
+        font-size: 0.95rem; 
+        font-family: inherit; 
+        color: #111; 
+        border-radius: 0; 
+        outline: none; 
+        transition: background-color 0.2s, border-color 0.2s; 
+      }
+      .odak-line-textarea { height: auto; }
+      .odak-line-input:focus, .odak-line-select:focus, .odak-line-textarea:focus { background-color: #dfded8; border-bottom-color: #ff5900; }
+
+      .search-icon-svg { position: absolute; right: 12px; bottom: 13px; width: 20px; height: 20px; stroke: #333; stroke-width: 2.2; fill: none; pointer-events: none; }
+      
+      .custom-checkbox-container { display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; }
+      .odak-checkbox { 
+        width: 14px !important; 
+        height: 14px !important; 
+        min-width: 14px !important;
+        min-height: 14px !important;
+        cursor: pointer !important; 
+        accent-color: #ff5900 !important; 
+        margin: 0 !important; 
+        padding: 0 !important; 
+        appearance: auto !important; 
+        -webkit-appearance: checkbox !important;
+      }
+      .checkbox-label-text { font-size: 0.82rem; color: #555; font-weight: 500; }
+
+      .file-upload-box { background: #e5e4de; border-bottom: 1.5px solid #111; padding: 12px 20px; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.95rem; font-weight: 600; border-radius: 0; margin-top: 5px; transition: 0.2s; }
+      .file-upload-box:hover { background: #dfded8; }
+
+      .white-submit-transition-area { background-color: #ffffff; padding: 30px 20px 70px; }
+      .submit-black-btn { background: #111111; color: #ffffff; border: none; padding: 16px 50px; font-size: 1rem; font-weight: 700; cursor: pointer; border-radius: 2px; transition: background 0.2s; text-transform: uppercase; margin-top: 10px; }
+      .submit-black-btn:hover { background: #ff5900; }
+
+      
+      .big-cream-container { background-color: #f2f2f0; border-top: 1px solid #e0dfd9; border-bottom: 1px solid #e0dfd9; padding: 80px 20px; }
+      .cream-inner-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center; }
+      
+      .help-big-title { font-size: clamp(3rem, 5vw, 4.5rem); color: #db4424; line-height: 1.05; margin: 0; letter-spacing: 0.02em; }
+      
+      .help-channel { border-bottom: 1px solid #ffaa77; padding: 40px 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+      .help-channel:first-child { padding-top: 0; }
+      .help-channel:last-child { border-bottom: none; padding-bottom: 0; }
+      
+      .help-channel h3 { font-size: 1.35rem; margin: 0 0 10px; color: #111; letter-spacing: 0.5px; font-weight: 800; }
+      .help-channel p { font-size: 0.95rem; color: #444; margin: 0 0 6px; line-height: 1.5; }
+      .help-channel strong { color: #111; font-weight: 700; text-decoration: underline; }
+      
+      .chat-btn { background: #db4424; color: #ffffff; border: none; padding: 12px 28px; font-weight: 700; cursor: pointer; border-radius: 2px; margin-top: 10px; font-size: 0.9rem; transition: background 0.2s; text-transform: uppercase; }
+      .chat-btn:hover { background: #c2381a; }
+      
+      .illustration-icon { width: 75px; height: 75px; object-fit: contain; flex-shrink: 0; margin-left: 20px; }
+
+      
+      .site-footer { background-color: #111111; color: #ffffff; padding: 70px 20px 30px; border-top: 4px solid #db4424; }
+      .footer-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 50px; }
+      .footer-col h4 { color: #db4424; font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 800; text-transform: uppercase; margin: 0 0 20px; letter-spacing: 0.5px; }
+      .footer-col a { display: block; color: #bbbbbb; text-decoration: none; font-size: 0.9rem; margin-bottom: 12px; transition: color 0.2s; }
+      .footer-col a:hover { color: #ffffff; }
+      .footer-social-icons { display: flex; gap: 15px; margin-bottom: 25px; }
+      .footer-social-icons a { color: #ffffff; transition: color 0.2s; }
+      .footer-social-icons a:hover { color: #db4424; }
+      .footer-social-icons svg { width: 20px; height: 20px; fill: currentColor; }
+      .footer-logo-big { font-family: 'Oswald', sans-serif; font-size: 4.5rem; font-weight: 900; color: #db4424; line-height: 1; margin: 0; letter-spacing: 1px; }
+      .footer-bottom { max-width: 1240px; margin: 0 auto; border-top: 1px solid #2a2a2a; padding-top: 20px; display: flex; justify-content: space-between; font-size: 0.8rem; color: #777; }
+
+      @media (max-width: 900px) { .form-row, .cream-inner-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: repeat(2, 1fr); } .support-nav { display: none; } }
+      @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; gap: 10px; text-align: center; } .help-channel { flex-direction: column; align-items: flex-start; } .illustration-icon { margin-left: 0; margin-top: 15px; } }
+    </style>
+  </head>
+  <body>
+    
+    <div class="top-green-bar">
+      <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px; max-width: 1240px; margin: 0 auto;">
+        <span>ODAK Müşteri Deneyimi Merkezi</span>
+        <a href="catalog.html" style="color: #fff; text-decoration: none;">🛒 Alışverişe devam edin</a>
+      </div>
+    </div>
+
+    <header>
+      <div class="container" style="display: flex; align-items: center; justify-content: space-between; padding: 0 20px; max-width: 1240px; margin: 0 auto;">
+        <div style="display: flex; align-items: center;">
+          <a class="odak-badge-logo" href="../index.html">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="#ffffff" stroke-width="2.5" />
+              <circle cx="12" cy="12" r="3.5" fill="#ffffff" />
+            </svg>
+            <span style="font-size: 1.5rem; font-weight: 900; font-family: 'Oswald', sans-serif;">DAK</span>
+          </a>
+          
+        </div>
+        
+        <div class="header-actions">
+          <a href="#" class="action-icon-link" id="searchIconBtn" title="Ara" aria-label="Ürünleri ara"><svg class="action-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg></a>
+          <a href="login.html" class="action-icon-link" title="Hesabım"><svg class="action-svg" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/></svg></a>
+          <a href="cart.html" class="action-icon-link" title="Sepetim"><svg class="action-svg" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5" fill="currentColor"/><circle cx="18" cy="20" r="1.5" fill="currentColor"/><path d="M1 1h4l2.68 12.39a2 2 0 0 0 2 1.61h8.72a2 2 0 0 0 2-1.61L22 6H6"/></svg><span class="cart-badge" id="headerCartCount">0</span></a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      
+      <section class="warranty-hero">
+        <div class="container" style="max-width: 1240px; margin: 0 auto; position: relative;">
+          
+          <div class="breadcrumb">
+            <a href="../index.html">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"/></svg>
+            </a> 
+            / <a href="contact.html">Müşteri Hizmetleri</a> / Garanti Talebi
+          </div>
+          
+          <h1 class="warranty-title odak-condensed">GARANTi TALEBi</h1>
+          
+          <svg class="hero-pattern" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="140" cy="100" r="75" stroke="#6b8e6f" stroke-width="12" />
+            <circle cx="140" cy="100" r="50" stroke="#6b8e6f" stroke-width="8" />
+            <path d="M40 110 Q 110 30 180 110" stroke="#6b8e6f" stroke-width="6" fill="none" />
+          </svg>
+        </div>
+      </section>
+
+      <section class="warranty-info-box">
+        <p>Lütfen destek materyallerimizi ve SSS bölümümüzü okuyun. Bunlar sorunu çözmezse, aşağıdaki formu doldurun. Çoğu talebe 48 saat içinde yanıt veriyoruz.</p>
+        <p>Aksi belirtilmedikçe, Türkiye'deki yetkili satıcılardan satın alınan tüm ürünler için garanti süresi teslimat tarihinden itibaren 2 yıldır. Garanti kapsamınızı kontrol etmek için lütfen ürününüzle birlikte verilen garanti kartına bakın.</p>
+        <p class="prominent-black-note">NOT: Orijinal satın alma tarihinden itibaren 6 aydan daha eski ürünler, yeni gibi durumda yenilenmiş bir ürünle değiştirilecektir.</p>
+      </section>
+
+      <form action="#" method="POST" id="garantiFormu">
+        <section class="form-big-cream-wrapper">
+          <div class="form-container">
+            
+              <div class="form-row">
+                <div class="form-field"><label>ilk adı *</label><input type="text" class="odak-line-input" required /></div>
+                <div class="form-field"><label>Soy isim *</label><input type="text" class="odak-line-input" required /></div>
+              </div>
+
+              <div class="form-field" style="margin-bottom: 26px;">
+                <label>Adres (Lütfen posta kutusu veya askeri adres kullanmayın) *</label>
+                <input type="text" class="odak-line-input" required />
+              </div>
+
+              <div class="form-row">
+                <div class="form-field"><label>Şehir *</label><input type="text" class="odak-line-input" required /></div>
+                <div class="form-field">
+                  <label>Durum *</label>
+                  <select class="odak-line-select" required>
+                    <option value="">Lütfen eyaletinizi/ilinizi seçin.</option><option value="34">istanbul</option><option value="06">Ankara</option><option value="35">izmir</option><option value="diger">Diğer</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field"><label>Posta kodu *</label><input type="text" class="odak-line-input" required /></div>
+                <div class="form-field"><label>Telefon Numarası *</label><input type="tel" class="odak-line-input" placeholder="05XX-XXX-XXXX" required /></div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field"><label>E-posta Adresi *</label><input type="email" class="odak-line-input" required /></div>
+                <div class="form-field">
+                  <div class="form-field-header">
+                    <label>Ürün *</label>
+                    <label class="custom-checkbox-container"><input type="checkbox" class="odak-checkbox" /><span class="checkbox-label-text">Ürün listede yok. *</span></label>
+                  </div>
+                  <div style="position: relative; width: 100%;">
+                    <input type="text" class="odak-line-input" required />
+                    <svg class="search-icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><line x1="16" y1="16" x2="21" y2="21"/></svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field"><label>Seri numarası *</label><input type="text" class="odak-line-input" required /></div>
+                <div class="form-field">
+                  <label>Satın alma yeri *</label>
+                  <select class="odak-line-select" required>
+                    <option value="">Lütfen seçin</option>
+                    <option value="odak">ODAK Resmi Mağaza</option>
+                    <option value="trendyol">Trendyol</option>
+                    <option value="mediamarkt">MediaMarkt</option>
+                    <option value="teknosa">Teknosa</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field" style="margin-bottom: 26px;">
+                <label>Sorunun açıklaması *</label>
+                <textarea class="odak-line-textarea" rows="4" required></textarea>
+              </div>
+
+              <div class="form-field">
+                <p style="font-size: 0.9rem; color: #444; margin: 0 0 10px;">Sipariş numaranız yoksa, lütfen faturanızın bir kopyasını ekleyin.</p>
+                <label class="file-upload-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                  <span>Dosya seçin</span>
+                  <input type="file" id="faturaInput" style="display: none;" />
+                </label>
+                <span id="dosyaAdiText" style="font-size: 0.85rem; color: #666; margin-top: 6px; display: block;">Dosya seçilmedi</span>
+              </div>
+            
+          </div>
+        </section>
+
+        <section class="white-submit-transition-area">
+          <div class="form-container">
+            <button type="button" id="gonderBtn" class="submit-black-btn">GÖNDER</button>
+          </div>
+        </section>
+      </form>
+
+      <section id="yardim" class="big-cream-container">
+        <div class="cream-inner-grid">
+          <div><h2 class="help-big-title odak-condensed">ARADIĞINIZI <br>BULAMADINIZ MI?</h2></div>
+          
+          <div>
+            
+            <div class="help-channel">
+              <div>
+                <h3 class="odak-condensed">BİZİ ARAYIN</h3>
+                <p>Destek temsilcisiyle görüşün.<br>Hemen arayın: <strong>0850 336 45 25</strong></p>
+                <p style="color: #777; font-size: 0.85rem; margin-top: 8px;">Pazartesi - Cuma: 09:00 - 23:00 (TR)<br>Cumartesi - Pazar: 09:00 - 17:00 (TR)</p>
+              </div>
+              <img src="../assets/images/arama ikonu.png" alt="Bizi Arayın ikonu" class="illustration-icon">
+            </div>
+            
+            <div class="help-channel">
+              <div>
+                <h3 class="odak-condensed">BİZİMLE SOHBET EDİN</h3>
+                <p style="color: #777; font-size: 0.85rem; margin-top: 8px; margin-bottom: 8px;">Pazartesi - Cuma: 09:00 - 23:00 (TR)<br>Cumartesi - Pazar: 09:00 - 17:00 (TR)</p>
+                <p>Size gerçek zamanlı olarak yardımcı olmaya hazırız. Bugün bizimle sohbet edin.</p>
+                <button id="startChatBtn" class="chat-btn">Sohbeti Başlat</button>
+              </div>
+              <img src="../assets/images/sohbet ikonu.png" alt="Sohbet ikonu" class="illustration-icon">
+            </div>
+            
+            <div class="help-channel">
+              <div>
+                <h3 class="odak-condensed">BİZE MESAJ GÖNDERİN</h3>
+                <p><strong style="color: #111; text-decoration: underline; font-weight: 700;">0532 333 78 07</strong> numarasına SMS yoluyla destek temsilcisiyle iletişime geçin.</p>
+                <p style="color: #777; font-size: 0.85rem; margin-top: 8px;">Pazartesi - Cuma: 09:00 - 23:00 (TR)<br>Cmt - Pazar: 09:00 - 17:00 (TR)</p>
+                <p style="font-size: 0.80rem; color: #888; margin-top: 10px;">Bize SMS yoluyla ulaşarak, sorununuzla ilgili olarak ODAK'tan kısa mesajlar almayı kabul etmiş olursunuz. istediğiniz zaman STOP yazarak mesaj almayı durdurabilirsiniz. Daha fazla bilgi için <a href="../gizlilik.html" style="color: #db4424;">Gizlilik Bildirimimize bakın.</a></p>
+              </div>
+              <img src="../assets/images/telefon ikonu.png" alt="Mesaj ikonu" class="illustration-icon">
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>MAĞAZA</h4>
+          <a href="catalog.html">Taşınabilir Hoparlörler</a>
+          <a href="parti.html">Parti Serisi</a>
+          <a href="kulakliklar.html">Kulak Üstü Kulaklıklar</a>
+          <a href="catalog.html">Kablosuz Kulak içi</a>
+        </div>
+        <div class="footer-col">
+          <h4>DESTEK</h4>
+          <a href="contact.html">Bize Ulaşın</a>
+          <a href="garanti.html">Garanti Talebi</a>
+          <a href="contact.html">Sıkça Sorulan Sorular</a>
+          <a href="garanti.html">Ürün Desteği</a>
+        </div>
+        <div class="footer-col">
+          <h4>HAKKIMIZDA</h4>
+          <a href="about.html">Odak Kurumsal</a>
+          <a href="../gizlilik.html">Gizlilik Politikası</a>
+          <a href="terms.html">Kullanım Şartları</a>
+          <a href="about.html">Sürdürülebilirlik</a>
+        </div>
+        <div class="footer-col">
+          <h4>BİZİ TAKİP EDİN</h4>
+          <div class="footer-social-icons">
+            <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.6 5H18V0h-3.808C10.597 0 9 1.583 9 4.615V8z"/></svg></a>
+            <a href="#" aria-label="X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 0 0-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg></a></div>
+          <p class="footer-logo-big">ODAK</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ODAK Audio International Inc. Tüm hakları saklıdır.</span>
+        <span>Türkiye Resmi Mağazası</span>
+      </div>
+    </footer>
+
+    
+    <script>
+      // Sepet Rozeti
+      function updateHeaderCartBadge() {
+        const cartCountBadge = document.querySelector('.cart-badge');
+        let cartItems = JSON.parse(localStorage.getItem('odakCartItems')) || [];
+        let totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+        if(cartCountBadge) cartCountBadge.textContent = totalCount;
+      }
+      window.addEventListener('DOMContentLoaded', updateHeaderCartBadge);
+
+      // Garanti Formu
+      const faturaInput = document.getElementById('faturaInput');
+      const dosyaAdiText = document.getElementById('dosyaAdiText');
+      if(faturaInput) {
+        faturaInput.addEventListener('change', function(event) {
+          if (event.target.files.length > 0) {
+            dosyaAdiText.textContent = "Seçilen dosya: " + event.target.files[0].name;
+            dosyaAdiText.style.color = "#276e33";
+          } else {
+            dosyaAdiText.textContent = "Dosya seçilmedi";
+            dosyaAdiText.style.color = "#666";
+          }
+        });
+      }
+
+      const gonderBtn = document.getElementById('gonderBtn');
+      const garantiFormu = document.getElementById('garantiFormu');
+      if(gonderBtn) {
+        gonderBtn.addEventListener('click', function() {
+          const telefonInput = document.querySelector('input[type="tel"]');
+          if (telefonInput.value.length < 10) {
+            alert("Lütfen geçerli bir telefon numarası giriniz.");
+            telefonInput.focus();
+            return;
+          }
+          alert("Garanti talebiniz başarıyla alınmıştır! En kısa sürede sizinle iletişime geçilecektir.");
+          garantiFormu.reset();
+          dosyaAdiText.textContent = "Dosya seçilmedi";
+          dosyaAdiText.style.color = "#666";
+        });
+      }
+
+    </script>
+      <div id="searchModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: flex-start; padding-top: 60px;"><div style="background: #fff; width: 90%; max-width: 650px; padding: 25px 30px; border-radius: 8px; position: relative; box-shadow: 0 15px 40px rgba(0,0,0,0.25);"><button id="closeSearchBtn" type="button" style="position: absolute; top: -14px; right: -14px; background: #ffffff; border: 2px solid #ddd; width: 36px; height: 36px; border-radius: 50%; font-size: 1.4rem; font-weight: bold; cursor: pointer; color: #333; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.15); transition: background 0.2s, color 0.2s;" title="Kapat">&times;</button><div style="display: flex; align-items: center; border: 2px solid #ff5900; border-radius: 4px; padding: 4px 12px; background: #fff;"><input type="text" id="searchInput" placeholder="Aramak istediğiniz ürünü yazın..." style="width: 100%; padding: 12px 8px; border: none; font-size: 1rem; outline: none; font-family: 'Roboto', sans-serif;" autofocus><svg style="width: 22px; height: 22px; stroke: #ff5900; stroke-width: 2.5; fill: none; flex-shrink: 0;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg></div><div id="searchDropdownResults" style="margin-top: 15px; max-height: 350px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;"><div style="font-size: 0.8rem; font-weight: 700; color: #888; text-transform: uppercase; margin-bottom: 5px;">Popüler Kategoriler &amp; Aramalar</div><a href="parti.html">Parti Serisi ve Işık Şovları</a><a href="catalog.html">Taşınabilir Hoparlörler (GO, Pulse, BoomBox)</a><a href="kulakliklar.html">Kulak Üstü &amp; Kablosuz TWS Kulaklıklar</a><a href="oyun.html">Oyun &amp; Yayın Ekipmanları (Quantum Kulaklıklar)</a></div></div></div>
+      <script src="../js/search.js"></script>
+      <script src="../js/chatbot.js"></script>
+    </body>
+</html>
+

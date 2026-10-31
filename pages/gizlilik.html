@@ -1,0 +1,172 @@
+﻿<!doctype html>
+<html lang="tr">
+  <head>
+    <meta name="author" content="Yusuf Oben Ay">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="ODAK Audio Gizlilik Politikası" />
+    <title>Gizlilik Politikası | ODAK Audio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css" />
+
+    <style>
+      * { box-sizing: border-box; }
+      body { background-color: #fcfcfc; color: #1a1a1a; margin: 0; font-family: 'Roboto', sans-serif; -webkit-font-smoothing: antialiased; }
+
+      .top-green-bar { background-color: #276e33; color: #ffffff; font-size: 0.8rem; font-weight: 500; padding: 7px 0; }
+      .top-green-bar a { color: #ffffff; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+      header { background: #ffffff; border-bottom: 1px solid #e0e0e0; padding: 14px 0; position: sticky; top: 0; z-index: 100; }
+      .odak-badge-logo { background: #ff5900; color: #ffffff; font-weight: 900; letter-spacing: -0.5px; padding: 6px 14px; display: inline-flex; align-items: center; gap: 2px; text-decoration: none; font-family: Arial, sans-serif; text-transform: uppercase; border-radius: 2px; }
+      .header-actions { display: flex; align-items: center; gap: 22px; }
+      .action-icon-link { color: #111111; text-decoration: none; position: relative; display: inline-flex; align-items: center; }
+      .action-svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 2; fill: none; }
+      .cart-badge { position: absolute; top: -8px; right: -10px; background-color: #ff5900; color: #ffffff; font-size: 0.7rem; font-weight: 700; width: 17px; height: 17px; display: flex; align-items: center; justify-content: center; border-radius: 2px; }
+
+      .terms-container { max-width: 900px; margin: 60px auto 100px; padding: 0 20px; line-height: 1.8; color: #333; }
+      .terms-container h1 { font-family: 'Oswald', sans-serif; font-size: 2.8rem; font-weight: 800; color: #111; text-transform: uppercase; margin-bottom: 10px; border-bottom: 3px solid #ff5900; display: inline-block; padding-bottom: 5px; }
+      .eyebrow { font-size: 0.9rem; font-weight: 700; color: #777; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; display: block; }
+      .intro-text { font-size: 1.1rem; color: #555; margin-bottom: 40px; }
+      .terms-content { background: #fff; padding: 40px; border: 1px solid #e0e0e0; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+      .terms-content h2 { font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: 700; color: #ff5900; margin-top: 30px; margin-bottom: 15px; text-transform: uppercase; }
+      .terms-content h2:first-child { margin-top: 0; }
+      .terms-content p { font-size: 1.05rem; margin-bottom: 20px; }
+      .terms-content ul { padding-left: 24px; margin: 0 0 20px; }
+      .terms-content li { font-size: 1.05rem; margin-bottom: 8px; }
+      .terms-content a { color: #ff5900; font-weight: 700; }
+
+      .site-footer { background-color: #111111; color: #ffffff; padding: 70px 20px 30px; border-top: 4px solid #ff5900; }
+      .footer-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 50px; }
+      .footer-col h4 { color: #ff5900; font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 800; text-transform: uppercase; margin: 0 0 20px; letter-spacing: 0.5px; }
+      .footer-col a { display: block; color: #bbbbbb; text-decoration: none; font-size: 0.9rem; margin-bottom: 12px; transition: color 0.2s; }
+      .footer-col a:hover { color: #ffffff; }
+      .footer-social-icons { display: flex; gap: 15px; margin-bottom: 25px; }
+      .footer-social-icons a { color: #ffffff; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 0; }
+      .footer-social-icons a:hover { color: #ff5900; }
+      .footer-social-icons svg { width: 20px; height: 20px; fill: currentColor; }
+      .footer-logo-big { font-family: 'Oswald', sans-serif; font-size: 4.5rem; font-weight: 900; color: #ff5900; line-height: 1; margin: 0; letter-spacing: 1px; }
+      .footer-bottom { max-width: 1240px; margin: 0 auto; border-top: 1px solid #2a2a2a; padding-top: 20px; display: flex; justify-content: space-between; font-size: 0.8rem; color: #777; }
+
+      @media (max-width: 900px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 600px) { .terms-content { padding: 20px; } .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; gap: 10px; text-align: center; } }
+    </style>
+  </head>
+  <body>
+    <div class="top-green-bar">
+      <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px; max-width: 1240px; margin: 0 auto;">
+        <span>ODAK Müşteri Deneyimi Merkezi</span>
+        <a href="pages/catalog.html">Alışverişe devam edin</a>
+      </div>
+    </div>
+
+    <header>
+      <div class="container" style="display: flex; align-items: center; justify-content: space-between; padding: 0 20px; max-width: 1240px; margin: 0 auto;">
+        <a class="odak-badge-logo" href="index.html" aria-label="ODAK Ana Sayfa">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="3" /><circle cx="12" cy="12" r="3.5" fill="#ffffff" /></svg>
+          <span style="font-size: 1.45rem; font-weight: 900; letter-spacing: -0.5px; font-family: 'Oswald', sans-serif;">DAK</span>
+        </a>
+        <div class="header-actions">
+          <a href="#" class="action-icon-link" id="searchIconBtn" title="Ara" aria-label="Ürünleri ara"><svg class="action-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg></a>
+          <a href="pages/login.html" class="action-icon-link" title="Giriş Yap" aria-label="Giriş yap"><svg class="action-svg" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+          <a href="pages/cart.html" class="action-icon-link" title="Sepet" aria-label="Sepeti görüntüle"><svg class="action-svg" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5" fill="currentColor"/><circle cx="18" cy="20" r="1.5" fill="currentColor"/><path d="M1 1h4l2.68 12.39a2 2 0 0 0 2-1.61h8.72a2 2 0 0 0 2-1.61L22 6H6"/></svg><span class="cart-badge">0</span></a>
+        </div>
+      </div>
+    </header>
+
+    <main class="terms-container">
+      <span class="eyebrow">BİLGİLENDİRME</span>
+      <h1>Gizlilik Politikası</h1>
+      <p class="intro-text">ODAK Audio olarak kişisel verilerinizin güvenliğine önem veriyoruz. Bu politika, web sitemizi kullanırken bilgilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar.</p>
+
+      <article class="terms-content">
+        <h2>1. Kapsam ve Sorumluluğumuz</h2>
+        <p>Bu Gizlilik Politikası, ODAK Audio markasıyla sunduğumuz kulaklık, hoparlör ve ses aksesuarlarının çevrim içi satışı sırasında ziyaretçilerimizden ve müşterilerimizden alınan bilgiler için geçerlidir. Siteyi kullanarak bu politikada açıklanan uygulamaları kabul etmiş olursunuz.</p>
+
+        <h2>2. Topladığımız Bilgiler</h2>
+        <p>Sipariş oluşturduğunuzda, hesap açtığınızda veya bizimle iletişime geçtiğinizde aşağıdaki bilgileri sağlayabilirsiniz:</p>
+        <ul>
+          <li>Ad, soyad, teslimat ve fatura adresi</li>
+          <li>E-posta adresi ve telefon numarası</li>
+          <li>Sipariş, garanti ve iade taleplerine ilişkin bilgiler</li>
+          <li>Müşteri hizmetleriyle yaptığınız yazışmaların içeriği</li>
+        </ul>
+        <p>Sitemizi ziyaret ettiğinizde cihaz türü, tarayıcı bilgisi, IP adresi ve sayfalarda geçirilen süre gibi teknik veriler de hizmetin güvenli ve düzgün çalışması için otomatik olarak işlenebilir.</p>
+
+        <h2>3. Bilgileri Kullanma Amaçlarımız</h2>
+        <p>Topladığımız bilgileri siparişlerinizi hazırlamak ve teslim etmek, ödeme ve iade süreçlerini yürütmek, garanti taleplerini değerlendirmek, müşteri desteği sağlamak ve web sitemizin performansını geliştirmek için kullanırız. Açık onayınız olmadan kişisel bilgilerinizi farklı bir amaçla kullanmayız.</p>
+
+        <h2>4. Ödeme ve Bilgi Güvenliği</h2>
+        <p>Ödeme bilgileriniz güvenli ödeme hizmeti sağlayıcıları tarafından işlenir; tam kart numaranızı sistemlerimizde saklamayız. Kişisel verilerinizi yetkisiz erişim, kayıp ve değişikliğe karşı korumak için erişim kontrolleri, güvenli bağlantılar ve teknik güvenlik önlemleri uygularız.</p>
+
+        <h2>5. Çerezler ve Benzer Teknolojiler</h2>
+        <p>Site tercihlerinizi hatırlamak, alışveriş sepetinizin çalışmasını sağlamak ve ziyaret istatistiklerini anlamak için çerezlerden yararlanabiliriz. Tarayıcı ayarlarınızdan çerezleri silebilir veya engelleyebilirsiniz; ancak bu durumda sepet ve giriş gibi bazı özellikler beklenen şekilde çalışmayabilir.</p>
+
+        <h2>6. Hizmet Sağlayıcılar ve Paylaşımlar</h2>
+        <p>Sipariş teslimatı, ödeme, e-posta, barındırma ve müşteri hizmetleri gibi işlemlerde bizim adımıza çalışan hizmet sağlayıcılarla yalnızca gerekli bilgileri paylaşırız. Kişisel verilerinizi reklam veya satış amacıyla üçüncü taraflara kiralamaz ya da satmayız. Yasal bir yükümlülük bulunması halinde yetkili kurumlarla paylaşım yapılabilir.</p>
+
+        <h2>7. Saklama Süresi ve Haklarınız</h2>
+        <p>Bilgilerinizi, sipariş ve yasal yükümlülüklerin gerektirdiği süre boyunca veya hizmeti sunmak için gerekli olduğu müddetçe saklarız. Kişisel verileriniz hakkında bilgi istemek, yanlış bilgilerin düzeltilmesini veya koşullara uygun olarak silinmesini talep etmek için <a href="pages/contact.html">iletişim sayfamız</a> üzerinden bize ulaşabilirsiniz.</p>
+
+        <h2>8. Çocukların Gizliliği</h2>
+        <p>Web sitemiz yetişkinlerin ve yasal olarak alışveriş yapma yetkisi bulunan kullanıcıların kullanımına yöneliktir. Bilerek çocuklardan kişisel veri toplamayız. Bir çocuğa ait bilginin izinsiz olarak paylaşıldığını düşünüyorsanız lütfen bizimle iletişime geçin.</p>
+
+        <h2>9. Politika Güncellemeleri ve iletişim</h2>
+        <p>Hizmetlerimiz veya yasal gereklilikler değiştiğinde bu politikayı güncelleyebiliriz. Güncel metin her zaman bu sayfada yayımlanır. Gizlilik uygulamalarımızla ilgili sorularınız için <a href="pages/contact.html">Müşteri Hizmetleri</a> ekibimize ulaşabilirsiniz.</p>
+        <p><strong>Son güncelleme: 29 Ekim 2026</strong></p>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>MAĞAZA</h4>
+          <a href="pages/catalog.html">Taşınabilir Hoparlörler</a>
+          <a href="pages/parti.html">Parti Serisi</a>
+          <a href="pages/kulakliklar.html">Kulak Üstü Kulaklıklar</a>
+          <a href="pages/kulakliklar.html">Kablosuz Kulak içi</a>
+        </div>
+        <div class="footer-col">
+          <h4>DESTEK</h4>
+          <a href="pages/contact.html">Bize Ulaşın</a>
+          <a href="pages/garanti.html">Garanti Talebi</a>
+          <a href="pages/terms.html">Teslimat ve iade</a>
+          <a href="pages/garanti.html">Ürün Desteği</a>
+        </div>
+        <div class="footer-col">
+          <h4>HAKKIMIZDA</h4>
+          <a href="pages/about.html">ODAK Kurumsal</a>
+          <a href="gizlilik.html" aria-current="page">Gizlilik Politikası</a>
+          <a href="pages/terms.html">Kullanım Şartları</a>
+          <a href="pages/about.html">Sürdürülebilirlik</a>
+        </div>
+        <div class="footer-col">
+          <h4>BİZİ TAKİP EDİN</h4>
+          <div class="footer-social-icons">
+            <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.79 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.6 5H18V0h-3.808C10.597 0 9 1.583 9 4.615V8z"/></svg></a>
+            <a href="#" aria-label="X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z"/></svg></a>
+          <a href="#" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 0 0-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg></a></div>
+          <p class="footer-logo-big">ODAK</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ODAK Audio International Inc. Tüm hakları saklıdır.</span>
+        <span>Türkiye Resmi Mağazası</span>
+      </div>
+    </footer>
+
+    <div id="searchModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: flex-start; padding-top: 60px;">
+      <div style="background: #fff; width: 90%; max-width: 650px; padding: 25px 30px; border-radius: 8px; position: relative; box-shadow: 0 15px 40px rgba(0,0,0,0.25);">
+        <button id="closeSearchBtn" type="button" style="position: absolute; top: -14px; right: -14px; background: #ffffff; border: 2px solid #ddd; width: 36px; height: 36px; border-radius: 50%; font-size: 1.4rem; font-weight: bold; cursor: pointer; color: #333; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.15); transition: background 0.2s, color 0.2s;" title="Kapat">&times;</button>
+        <div style="display: flex; align-items: center; border: 2px solid #ff5900; border-radius: 4px; padding: 4px 12px; background: #fff;"><input type="text" id="searchInput" placeholder="Aramak istediğiniz ürünü yazın..." style="width: 100%; padding: 12px 8px; border: none; font-size: 1rem; outline: none; font-family: 'Roboto', sans-serif;" autofocus><svg style="width: 22px; height: 22px; stroke: #ff5900; stroke-width: 2.5; fill: none; flex-shrink: 0;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg></div>
+        <div id="searchDropdownResults" style="margin-top: 15px; max-height: 350px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;"><div style="font-size: 0.8rem; font-weight: 700; color: #888; text-transform: uppercase; margin-bottom: 5px;">Popüler Kategoriler &amp; Aramalar</div><a href="pages/parti.html" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: #f9f9f9; border-radius: 4px; text-decoration: none; color: #111; font-weight: 600; font-size: 0.95rem;"><span style="display: flex; align-items: center; gap: 10px;"><svg style="width: 18px; height: 18px; stroke: #ff5900; fill: none; stroke-width: 2;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Parti Serisi ve Işık Şovları</span><span style="font-size: 0.8rem; color: #ff5900; font-weight: bold;">Git →</span></a><a href="pages/catalog.html" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: #f9f9f9; border-radius: 4px; text-decoration: none; color: #111; font-weight: 600; font-size: 0.95rem;"><span style="display: flex; align-items: center; gap: 10px;"><svg style="width: 18px; height: 18px; stroke: #ff5900; fill: none; stroke-width: 2;" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>Taşınabilir Hoparlörler (GO, Pulse, BoomBox)</span><span style="font-size: 0.8rem; color: #ff5900; font-weight: bold;">Git →</span></a><a href="pages/kulakliklar.html" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: #f9f9f9; border-radius: 4px; text-decoration: none; color: #111; font-weight: 600; font-size: 0.95rem;"><span style="display: flex; align-items: center; gap: 10px;"><svg style="width: 18px; height: 18px; stroke: #ff5900; fill: none; stroke-width: 2;" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>Kulak Üstü &amp; Kablosuz TWS Kulaklıklar</span><span style="font-size: 0.8rem; color: #ff5900; font-weight: bold;">Git →</span></a><a href="pages/oyun.html" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: #f9f9f9; border-radius: 4px; text-decoration: none; color: #111; font-weight: 600; font-size: 0.95rem;"><span style="display: flex; align-items: center; gap: 10px;"><svg style="width: 18px; height: 18px; stroke: #ff5900; fill: none; stroke-width: 2;" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4m-2-2v4M15 11h.01M18 13h.01"/></svg>Oyun &amp; Yayın Ekipmanları (Quantum Kulaklıklar)</span><span style="font-size: 0.8rem; color: #ff5900; font-weight: bold;">Git →</span></a></div>
+      </div>
+    </div>
+    <script src="js/search.js"></script>
+    <script src="js/chatbot.js"></script>
+  </body>
+</html>
+
+

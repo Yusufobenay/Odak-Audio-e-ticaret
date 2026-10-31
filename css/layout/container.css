@@ -1,0 +1,5 @@
+﻿.container { width: min(var(--container-width), calc(100% - 48px)); margin-inline: auto; }
+.section { padding-block: 100px; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 36px; }
+.section-heading .eyebrow { margin-bottom: 15px; }
+@media (max-width: 640px) { .container { width: min(100% - 32px, var(--container-width)); } .section { padding-block: 64px; } .section-heading { align-items: start; flex-direction: column; } }

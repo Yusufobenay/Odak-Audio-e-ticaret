@@ -1,0 +1,28 @@
+﻿
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-ink: #f0ede6;
+    --color-muted: #9fa297;
+    --color-paper: #161815;
+    --color-white: #20231d;
+    --color-bg-warm: #282c24;
+    --color-border-input: #383d33;
+    --color-sand: #31362c;
+    --shadow-soft: 0 18px 50px rgb(0 0 0 / 50%);
+  }
+}
+
+
+:root[data-theme="dark"],
+body.dark-mode {
+  --color-ink: #f0ede6;
+  --color-muted: #9fa297;
+  --color-paper: #161815;
+  --color-white: #20231d;
+  --color-bg-warm: #282c24;
+  --color-border-input: #383d33;
+  --color-sand: #31362c;
+  --shadow-soft: 0 18px 50px rgb(0 0 0 / 50%);
+}
