@@ -115,6 +115,23 @@
         .footer-grid { grid-template-columns: 1fr; } 
         .footer-bottom { flex-direction: column; gap: 10px; text-align: center; } 
       }
+      @media (max-width: 768px) {
+        .cart-layout { width: 100% !important; max-width: 100% !important; margin: 20px 0 60px !important; padding: 0 12px !important; gap: 20px !important; }
+        .cart-left-col, .cart-items-container { width: 100%; gap: 16px !important; }
+        .page-title { font-size: 1.35rem !important; line-height: 1.25 !important; margin-bottom: 18px !important; padding-bottom: 8px !important; }
+        .address-box, .summary-box, .cart-item { width: 100%; border-width: 1px !important; border-color: #e3e3e3 !important; border-radius: 8px !important; padding: 18px !important; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+        .address-box { flex-direction: column !important; align-items: stretch !important; gap: 14px !important; }
+        .address-change-btn { width: 100%; }
+        .cart-item { flex-direction: column !important; align-items: stretch !important; text-align: left !important; gap: 14px !important; }
+        .item-img-wrap { width: 100% !important; height: 180px !important; }
+        .item-title { max-width: 100% !important; padding-right: 28px; margin-bottom: 10px !important; }
+        .qty-control { justify-content: space-between !important; margin-top: 14px !important; }
+        .summary-box { margin-top: 0 !important; }
+        .summary-title { font-size: 1.25rem !important; margin-bottom: 16px !important; padding-bottom: 12px !important; }
+        .summary-total { flex-direction: row !important; align-items: flex-end !important; }
+        .summary-total-price { font-size: 1.6rem !important; }
+        .payment-methods { flex-wrap: wrap; gap: 12px !important; }
+      }
     </style>
   </head>
   <body>

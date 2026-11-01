@@ -205,7 +205,7 @@
       
       <section class="video-section">
         <div class="video-wrapper-outer">
-          <video autoplay muted loop playsinline class="custom-headphone-video">
+          <video id="brandVideo" autoplay muted loop playsinline preload="auto" class="custom-headphone-video">
             <source src="../assets/videos/kulaklik.mp4" type="video/mp4" />
           </video>
           <div class="brand-video-overlay">
@@ -460,6 +460,19 @@
     </script>
     <script src="../js/search.js"></script>
     <script src="../js/chatbot.js"></script>
+    <script>
+      // Autoplay engellenirse ilk kullanıcı etkileşiminde videoyu başlat.
+      (function () {
+        var v = document.getElementById('brandVideo');
+        if (!v) return;
+        v.muted = true;
+        var start = function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+        start();
+        ['touchstart', 'click', 'scroll'].forEach(function (e) {
+          window.addEventListener(e, function once() { if (v.paused) start(); window.removeEventListener(e, once); }, { passive: true });
+        });
+      })();
+    </script>
   </body>
 </html>
 

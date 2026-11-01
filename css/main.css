@@ -11,3 +11,4 @@
 @import url('./pages/content-pages.css');
 @import "base/dark-theme.css";
 @import './chatbot.css';
+@import './responsive.css';

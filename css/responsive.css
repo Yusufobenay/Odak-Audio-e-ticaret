@@ -1,0 +1,173 @@
+﻿/* Tüm sayfalar için mobil düzeltmeleri; sayfa içi <style> ve inline stilleri ezmek için !important kullanılır. */
+html, body { max-width: 100%; overflow-x: hidden; }
+img, video, svg, iframe, table { max-width: 100%; }
+img, video { height: auto; }
+.container, .container-wide, main, section, header, footer { max-width: 100%; }
+
+@media (max-width: 768px) {
+  /* Header */
+  header > .container,
+  .site-header > .container,
+  .header-inner {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  header > .container > div:first-child,
+  .header-inner > div:first-child {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100%;
+  }
+  .odak-nav, .support-nav {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px 18px !important;
+    margin-left: 0 !important;
+    width: 100%;
+  }
+  .header-actions { justify-content: center !important; width: 100%; gap: 22px !important; }
+  .top-utility-bar > .container,
+  .top-green-bar > .container {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 6px 16px !important;
+    text-align: center;
+  }
+
+  /* Yan yana duran grid/flex yapıları tek sütun */
+  main [style*="grid-template-columns"],
+  .trust-strip > .container,
+  .orange-hero-container, .hero-polaroid-collage, .duo-cards-grid, .best-grid,
+  .contact-layout, .mag-hero-grid, .editors-grid, .asym-grid, .guide-banner,
+  .catalog-layout, .product-grid, .cart-layout, .auth-layout,
+  .pod-hero, .episode-grid, .seasons-section,
+  .form-row, .cream-inner-grid, .footer-grid, .footer-main {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .cart-item, .address-box, .asym-item, .help-channel, .newsletter-form,
+  .audio-player-bar, .player-controls-row, .phone-input-row, .method-row,
+  .product-area-header, .section-header-flex, .sec-header, .footer-bottom,
+  main [style*="justify-content: space-between"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .advantages-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .steps-container { flex-wrap: wrap; gap: 14px !important; }
+  .cart-item .item-img-wrap { width: 100% !important; }
+  .summary-box, .sidebar-filter { position: static !important; }
+  .hero-pattern { display: none; }
+  .polaroid-card, .polaroid-card.tilt-right { transform: none !important; }
+
+  /* Başlıklar */
+  h1, .hero-number-ten, .warranty-title, .contact-title, .mag-hero-title,
+  .terms-container h1 { font-size: clamp(1.7rem, 8vw, 2.3rem) !important; line-height: 1.15 !important; overflow-wrap: anywhere; }
+  h2, .best-section-title, .brand-conclusion, .help-big-title, .product-area-title,
+  .sec-title, .faq-title, .statement-text { font-size: clamp(1.4rem, 6vw, 1.9rem) !important; line-height: 1.2 !important; overflow-wrap: anywhere; }
+  h3, .featured-box-tag, .guide-banner h3, .product-promo-section h3, .newsletter-box h3 { font-size: clamp(1.15rem, 5vw, 1.5rem) !important; }
+  .hero-stacked-title { font-size: clamp(1.4rem, 6vw, 1.9rem) !important; }
+  .footer-logo-big, .brand-video-logo { font-size: 2.8rem !important; }
+  .hero-title-group { flex-wrap: wrap; justify-content: center; }
+  .statement-container { padding: 0 !important; }
+  .statement-section, .orange-hero-banner, .best-products-section, .duo-cards-section { padding-left: 16px !important; padding-right: 16px !important; }
+  .featured-box { min-height: 340px !important; padding: 28px 22px !important; }
+  .guide-banner, .product-promo-section, .newsletter-box, .pod-hero, .seasons-section { padding: 28px 20px !important; }
+
+  /* Görsel ve butonlar */
+  img { max-width: 100% !important; }
+  .mag-hero-img, .asym-big img { height: auto !important; max-height: 320px; }
+  button, .btn-primary, .btn-secondary, .btn-submit, .submit-black-btn, .chat-btn,
+  .mag-btn, .newsletter-btn, .featured-box-btn, .discover-catalog-btn,
+  main a[style*="padding: 14px"] {
+    max-width: 100%;
+  }
+  .btn-submit, .submit-black-btn, .mag-btn, .newsletter-btn, .featured-box-btn,
+  .discover-catalog-btn, .btn-primary, .btn-secondary {
+    width: 100% !important;
+    justify-content: center;
+    text-align: center;
+  }
+  main [style*="display: flex"][style*="flex-wrap"] > a { flex: 1 1 100%; text-align: center; }
+  .video-wrapper-outer { max-width: 100% !important; }
+  .brand-video-overlay { padding: 12px !important; }
+
+  /* Footer: alt alta liste */
+  .site-footer { padding-left: 20px !important; padding-right: 20px !important; }
+  .footer-grid, .footer-main { gap: 28px !important; text-align: left; }
+  .footer-bottom { align-items: center !important; text-align: center; gap: 10px !important; }
+  .footer-grid .footer-col a { margin-bottom: 10px; }
+  .floating-chat-bubble { bottom: 16px !important; right: 16px !important; padding: 10px 16px !important; }
+}
+
+/* Sepet sayfası mobil düzeni */
+@media (max-width: 768px) {
+  .cart-layout { width: 100%; max-width: 100%; margin: 20px 0 60px !important; padding: 0 12px !important; gap: 20px !important; }
+  .cart-left-col, .cart-items-container { width: 100%; gap: 16px !important; }
+  .page-title { font-size: 1.35rem !important; line-height: 1.25 !important; margin-bottom: 18px !important; }
+  .address-box, .summary-box, .cart-item { width: 100%; border: 1px solid #e3e3e3 !important; border-radius: 8px !important; padding: 18px !important; }
+}
+
+/* Katalog, form, kapsayıcı ve footer düzeltmeleri */
+@media (max-width: 768px) {
+  .catalog-layout { display: flex !important; flex-direction: column !important; align-items: stretch !important; }
+  .sidebar-filter, .product-area { width: 100% !important; min-width: 0; }
+  .product-grid { display: flex !important; flex-direction: column !important; gap: 20px !important; }
+  .product-grid > .product-card { width: 100%; margin: 0 !important; box-sizing: border-box; }
+
+  input, textarea, select, .form-input, .form-textarea, .form-select,
+  .odak-line-input, .odak-line-select, .odak-line-textarea, .qty-input.form-input {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box !important;
+  }
+  input[type="checkbox"], input[type="radio"] { width: auto !important; }
+  form, .form-container, .form-field, .form-group { width: 100%; max-width: 100%; }
+
+  .container, .container-wide, .catalog-layout, .contact-layout, .auth-layout,
+  .terms-container, .form-container, .warranty-info-box, .faq-section,
+  .cart-layout, .footer-grid, .footer-bottom {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .site-footer { padding-left: 0 !important; padding-right: 0 !important; }
+  .footer-grid, .footer-main { display: flex !important; flex-direction: column !important; }
+  .footer-col { width: 100%; }
+}
+
+/* Ürün kartları (kategori sayfaları) */
+@media (max-width: 768px) {
+  .product-card { padding: 0 0 22px !important; border-radius: 8px !important; overflow: hidden; }
+  .card-img-wrap {
+    aspect-ratio: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 0 20px !important;
+    padding: 40px 16px 12px !important;
+    border-radius: 0 !important;
+    justify-content: center;
+  }
+  .card-img-wrap img {
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 200px !important;
+    object-fit: contain !important;
+  }
+  .card-text-content { padding: 0 20px !important; gap: 0; }
+  .rating { margin-bottom: 14px !important; flex-wrap: wrap; }
+  .product-title { font-size: 1.05rem !important; line-height: 1.6 !important; margin: 0 0 18px !important; letter-spacing: 0 !important; }
+  .price-area { margin-bottom: 22px !important; }
+  .new-price { font-size: 1.35rem !important; }
+  .add-to-cart-btn { padding: 14px 0 !important; font-size: 0.95rem !important; margin-top: 0 !important; }
+}
+
