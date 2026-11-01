@@ -1,4 +1,6 @@
 ﻿/* Tüm sayfalar için mobil düzeltmeleri; sayfa içi <style> ve inline stilleri ezmek için !important kullanılır. */
+html, body { background-color: #ffffff; color: #333333; }
+header, .site-header, .product-card { background-color: #ffffff; }
 html, body { max-width: 100%; overflow-x: hidden; }
 img, video, svg, iframe, table { max-width: 100%; }
 img, video { height: auto; }
